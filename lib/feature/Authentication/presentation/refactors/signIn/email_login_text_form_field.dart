@@ -1,8 +1,5 @@
 import '../../../../../../core/common/shared/shared_imports.dart'; // Import barrel file for shared utilities
 
-/// [EmailLoginTextFormField] is a widget that provides a form field for users
-/// to input their email address during login. It uses BlocBuilder to listen
-/// to changes in the login state and updates the input field accordingly.
 class EmailLoginTextFormField extends StatelessWidget {
   const EmailLoginTextFormField({
     super.key,
@@ -10,45 +7,42 @@ class EmailLoginTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Initialize the ResponsiveUtils to handle responsive layout adjustments
     final responsive = ResponsiveUtils(context);
 
     return BlocBuilder<LoginBloc, LoginState>(
       builder: (context, state) {
-        return TextFormField(
-          // Capture the email input and trigger the event to update the bloc's state
-     
-          onChanged: (value) =>
-              context.read<LoginBloc>().add(UserLoginEmailAddress(value)),
-          textInputAction:
-              TextInputAction.next, // Move to the next field when done
-          keyboardType:
-              TextInputType.emailAddress, // Email input type for keyboard
-          controller: context
-              .read<LoginBloc>()
-              .userLoginEmailAddress, // Email controller from the bloc
-
-          // Enable autofill hints for better UX
-          autofillHints: const [
-            AutofillHints.email,
-          ],
-
-          // Input decoration including the prefix icon and error handling
-          decoration: InputDecoration(
-            prefixIcon: Icon(
-              IconlyBroken.message, // Email icon
-              size:
-                  responsive.setIconSize(5.5), // Adjust icon size responsively
+        return SizedBox(
+          width: responsive.responsiveValue(
+              desktop: responsive.setWidth(30),
+              tablet: responsive.setWidth(30),
+              mobile: responsive.screenWidth),
+          child: TextFormField(
+            style: TextStyle(
+              fontSize: responsive.responsiveTextSize(
+                  desktop: responsive.setTextSize(1.2),
+                  tablet: responsive.setTextSize(1.2),
+                  mobile: responsive.setTextSize(3)),
             ),
-            hintText:
-                context.translate(AppStrings
-                .emailExample)  , // Placeholder text for the email field
-
-            // Show error message if the state contains an invalid email
-            errorText: state.whenOrNull(
-              userLoginEmailAddress: (value) {
-                return value.isNotEmpty ? value : null;
-              },
+            onChanged: (value) =>
+                context.read<LoginBloc>().add(UserLoginEmailAddress(value)),
+            textInputAction: TextInputAction.next,
+            keyboardType: TextInputType.emailAddress,
+            controller: context.read<LoginBloc>().userLoginEmailAddress,
+            autofillHints: const [
+              AutofillHints.email,
+            ],
+            decoration: InputDecoration(
+              prefixIcon: Icon(
+                IconlyBroken.message,
+                size: responsive.setIconSize(responsive.responsiveValue(
+                    desktop: 2, tablet: 2, mobile: 5.5)),
+              ),
+              hintText: context.translate(AppStrings.emailExample),
+              errorText: state.whenOrNull(
+                userLoginEmailAddress: (value) {
+                  return value.isNotEmpty ? value : null;
+                },
+              ),
             ),
           ),
         );
@@ -56,4 +50,3 @@ class EmailLoginTextFormField extends StatelessWidget {
     );
   }
 }
-

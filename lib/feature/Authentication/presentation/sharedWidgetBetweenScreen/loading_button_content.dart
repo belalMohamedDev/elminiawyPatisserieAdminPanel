@@ -23,7 +23,8 @@ class LoadingButtonContent extends StatelessWidget {
         children: [
           SizedBox(
             height: responsive.setHeight(2),
-            width: responsive.setWidth(4),
+            width: responsive.setWidth(responsive.responsiveValue(
+                desktop: 1.6, tablet: 1.6, mobile: 4)),
             child: CircularProgressIndicator(
               color:
                   signWithGoogleOrApple ? ColorManger.brun : ColorManger.white,
@@ -36,28 +37,30 @@ class LoadingButtonContent extends StatelessWidget {
             context.translate(AppStrings.loading),
             style: signWithGoogleOrApple
                 ? Theme.of(context).textTheme.titleLarge?.copyWith(
-                      fontSize: responsive.setTextSize(3.8),
+                      fontSize: responsive.setTextSize(
+                          responsive.responsiveTextSize(
+                              desktop: 1.3, tablet: 1.3, mobile: 3.8)),
                     )
                 : Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontSize: responsive.setTextSize(3.8),
+                      fontSize: responsive.setTextSize(
+                          responsive.responsiveTextSize(
+                              desktop: 1.3, tablet: 1.3, mobile: 3.8)),
                     ),
           ),
         ],
       );
     }
 
-    if (state is LoginButtonLoadingData 
-      
-       
-    
-   ) {
+    if (state is LoginButtonLoadingData) {
       return loadingWidget();
     } else {
       return defultWidget ??
           Text(
             context.translate(defaultText!),
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontSize: responsive.setTextSize(3.8),
+                  fontSize: responsive.setTextSize(
+                      responsive.responsiveTextSize(
+                          desktop: 1.3, tablet: 1.3, mobile: 3.8)),
                 ),
           );
     }

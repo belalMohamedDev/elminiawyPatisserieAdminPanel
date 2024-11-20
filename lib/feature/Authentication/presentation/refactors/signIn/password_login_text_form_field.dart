@@ -19,58 +19,76 @@ class PasswordLoginTextFormField extends StatelessWidget {
     return BlocBuilder<LoginBloc, LoginState>(
       // Listen to the LoginBloc to update the UI based on the current state
       builder: (context, state) {
-        return TextFormField(
-          onChanged: (value) {
-            // When the user changes the text, update the LoginBloc with the new password
-            context.read<LoginBloc>().add(UserLoginPassword(value));
-          },
-          textInputAction: TextInputAction
-              .next, // Moves to the next field when "next" is pressed
-          keyboardType: TextInputType
-              .visiblePassword, // Specifies that this is a password field
-          controller: context
-              .read<LoginBloc>()
-              .userLoginPassword, // The controller for managing input
-          obscureText: context
-              .read<LoginBloc>()
-              .showPass, // Toggles between showing/hiding password
-          autofillHints: const [
-            AutofillHints.password, // Autofill hint for password
-          ],
-          decoration: InputDecoration(
-            // Prefix icon (lock icon) for password input
-            prefixIcon: Icon(
-              IconlyBroken.lock, // Lock icon to represent the password field
-              size: responsive.setIconSize(
-                  5.5), // Set size dynamically based on screen size
+        return SizedBox(
+          width: responsive.responsiveValue(
+              desktop: responsive.setWidth(30),
+              tablet: responsive.setWidth(30),
+              mobile: responsive.screenWidth),
+          child: TextFormField(
+            onChanged: (value) {
+              // When the user changes the text, update the LoginBloc with the new password
+              context.read<LoginBloc>().add(UserLoginPassword(value));
+            },
+            textInputAction: TextInputAction
+                .next, // Moves to the next field when "next" is pressed
+            keyboardType: TextInputType
+                .visiblePassword, // Specifies that this is a password field
+            controller: context
+                .read<LoginBloc>()
+                .userLoginPassword, // The controller for managing input
+            obscureText: context
+                .read<LoginBloc>()
+                .showPass, // Toggles between showing/hiding password
+            autofillHints: const [
+              AutofillHints.password, // Autofill hint for password
+            ],
+            style: TextStyle(
+              fontSize: responsive.responsiveTextSize(
+                  desktop: responsive.setTextSize(1.2),
+                  tablet: responsive.setTextSize(1.2),
+                  mobile: responsive.setTextSize(3)),
             ),
-            // Suffix icon to toggle password visibility (show/hide)
-            suffixIcon: IconButton(
-              onPressed: () {
-                // Toggle the password visibility in the bloc
-                context.read<LoginBloc>().add(const UserShowLoginPassword());
-              },
-              icon: context.read<LoginBloc>().showPass
-                  ? Icon(
-                      IconlyBroken.show, // Show password icon
-                      size: responsive
-                          .setIconSize(6.5), // Set icon size dynamically
-                    )
-                  : Icon(
-                      IconlyBroken.hide, // Hide password icon
-                      size: responsive
-                          .setIconSize(6.5), // Set icon size dynamically
-                    ),
-            ),
-            hintText:  context.translate(AppStrings
-                .enterYourPassword) , // Hint text for the password field
-            // Show validation errors if any, based on the state of the bloc
-            errorText: state.whenOrNull(
-              userLoginPassword: (value) {
-                return value.isNotEmpty
-                    ? value
-                    : null; // If error exists, display it
-              },
+            decoration: InputDecoration(
+              // Prefix icon (lock icon) for password input
+              prefixIcon: Icon(
+                IconlyBroken.lock, // Lock icon to represent the password field
+                size: responsive.setIconSize(responsive.responsiveValue(
+                    desktop: 2,
+                    tablet: 2,
+                    mobile: 5.5)), // Set size dynamically based on screen size
+              ),
+              // Suffix icon to toggle password visibility (show/hide)
+              suffixIcon: IconButton(
+                onPressed: () {
+                  // Toggle the password visibility in the bloc
+                  context.read<LoginBloc>().add(const UserShowLoginPassword());
+                },
+                icon: context.read<LoginBloc>().showPass
+                    ? Icon(
+                        IconlyBroken.show, // Show password icon
+                        size: responsive.setIconSize(responsive.responsiveValue(
+                            desktop: 2,
+                            tablet: 2,
+                            mobile: 6.5)), // Set icon size dynamically
+                      )
+                    : Icon(
+                        IconlyBroken.hide, // Hide password icon
+                        size: responsive.setIconSize(responsive.responsiveValue(
+                            desktop: 2,
+                            tablet: 2,
+                            mobile: 6.5)), // Set icon size dynamically
+                      ),
+              ),
+              hintText: context.translate(AppStrings
+                  .enterYourPassword), // Hint text for the password field
+              // Show validation errors if any, based on the state of the bloc
+              errorText: state.whenOrNull(
+                userLoginPassword: (value) {
+                  return value.isNotEmpty
+                      ? value
+                      : null; // If error exists, display it
+                },
+              ),
             ),
           ),
         );

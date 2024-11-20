@@ -32,7 +32,10 @@ class HaveAnAccountText extends StatelessWidget {
             // Space between the two texts
             WidgetSpan(
               child: SizedBox(
-                width: responsive.setWidth(3), // Responsive width for spacing
+                width: responsive.setWidth(responsive.responsiveTextSize(
+                    desktop: 1.5,
+                    tablet: 1.5,
+                    mobile: 3)), // Responsive width for spacing
               ),
             ),
             // Sign Up link with tap gesture

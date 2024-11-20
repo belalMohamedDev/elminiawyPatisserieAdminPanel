@@ -78,20 +78,30 @@ ThemeData getApplicationTheme(BuildContext context) {
         backgroundColor: Colors.brown.shade50,
         showUnselectedLabels: true,
       ),
+      
 
-// input decoration theme ( text form field )
       inputDecorationTheme: InputDecorationTheme(
         contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 8.0),
+        
         prefixStyle: getMediumStyle(
-          fontSize: 13.sp,
+          fontSize: responsive.responsiveTextSize(
+              desktop: responsive.setTextSize(12),
+              tablet: responsive.setTextSize(1.2),
+              mobile: responsive.setTextSize(1.2)),
           color: ColorManger.black26,
         ),
         hintStyle: getMediumStyle(
-          fontSize: 11.sp,
+          fontSize: responsive.responsiveTextSize(
+              desktop: responsive.setTextSize(1.2),
+              tablet: responsive.setTextSize(1.2),
+              mobile: responsive.setTextSize(3)),
           color: ColorManger.black26,
         ),
         errorStyle: TextStyle(
-            fontSize: 11.sp,
+            fontSize: responsive.responsiveTextSize(
+                desktop: responsive.setTextSize(1.2),
+                tablet: responsive.setTextSize(1.2),
+                mobile: responsive.setTextSize(3)),
             fontFamily: FontConsistent.geLocalozedFontFamily(),
             fontWeight: FontWeight.w500),
         prefixIconColor: WidgetStateColor.resolveWith((states) =>
@@ -103,27 +113,34 @@ ThemeData getApplicationTheme(BuildContext context) {
                 ? ColorManger.brunLight
                 : ColorManger.black26),
         labelStyle: getMediumStyle(
-          fontSize: 10.sp,
+          fontSize: responsive.responsiveTextSize(
+              desktop: responsive.setTextSize(1),
+              tablet: responsive.setTextSize(1),
+              mobile: responsive.setTextSize(3)),
           color: ColorManger.black26,
         ),
         filled: true,
         fillColor: ColorManger.white,
         focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: ColorManger.selected),
-            borderRadius:
-                BorderRadius.circular(responsive.setBorderRadius(2.5))),
+            borderRadius: BorderRadius.circular(responsive.setBorderRadius(
+                responsive.responsiveValue(
+                    desktop: 1, tablet: 1, mobile: 2.5)))),
         enabledBorder: OutlineInputBorder(
-            borderRadius:
-                BorderRadius.circular(responsive.setBorderRadius(2.5)),
+            borderRadius: BorderRadius.circular(responsive.setBorderRadius(
+                responsive.responsiveValue(
+                    desktop: 1, tablet: 1, mobile: 2.5))),
             borderSide:
                 BorderSide(color: ColorManger.unselected, width: 0.4.w)),
         errorBorder: OutlineInputBorder(
-            borderRadius:
-                BorderRadius.circular(responsive.setBorderRadius(2.5)),
+            borderRadius: BorderRadius.circular(responsive.setBorderRadius(
+                responsive.responsiveValue(
+                    desktop: 1, tablet: 1, mobile: 2.5))),
             borderSide: BorderSide(color: ColorManger.redError, width: 0.4.w)),
         focusedErrorBorder: OutlineInputBorder(
-            borderRadius:
-                BorderRadius.circular(responsive.setBorderRadius(2.5)),
+            borderRadius: BorderRadius.circular(responsive.setBorderRadius(
+                responsive.responsiveValue(
+                    desktop: 1, tablet: 1, mobile: 2.5))),
             borderSide: BorderSide(color: ColorManger.redError, width: 0.4.w)),
       ));
 }

@@ -45,7 +45,6 @@ export '../../../../core/common/sharedWidget/product_grid_view_loading.dart';
 export '../../../../core/common/sharedWidget/product_grid_view_success.dart';
 export '../../../feature/Authentication/presentation/sharedWidgetBetweenScreen/have_account_text.dart';
 export '../../../feature/Authentication/presentation/refactors/signIn/email_login_text_form_field.dart';
-export '../../../feature/Authentication/presentation/sharedWidgetBetweenScreen/or_sign_in_with_text.dart';
 export '../../../feature/Authentication/presentation/refactors/signIn/password_login_text_form_field.dart';
 export '../../../feature/Authentication/presentation/refactors/signIn/sign_in_button.dart';
 export 'package:flutter/gestures.dart';

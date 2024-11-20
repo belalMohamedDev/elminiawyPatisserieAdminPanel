@@ -27,6 +27,7 @@ class CustomButton extends StatelessWidget {
         (onPressed == null ? ColorManger.unselectedButton : ColorManger.brun);
     return Container(
       height: responsive.setHeight(height),
+      
       width: responsive.setWidth(width),
       decoration: BoxDecoration(
           border: borderColor != null

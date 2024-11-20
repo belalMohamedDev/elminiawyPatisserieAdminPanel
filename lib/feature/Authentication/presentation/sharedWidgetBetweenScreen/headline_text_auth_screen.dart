@@ -21,20 +21,27 @@ class HeadlineTextAuthScreen extends StatelessWidget {
         Text(
           context.translate(titleText),
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                fontSize: responsive.setTextSize(4.2), // Uses theme styling
+                fontSize: responsive.responsiveTextSize(
+                    mobile: responsive.setTextSize(4.2),
+                    desktop: responsive.setTextSize(3),
+                    tablet: responsive.setTextSize(4)), // Uses theme styling
               ),
         ),
 
         SizedBox(
-          height: responsive.setHeight(1), // Spacing after the headline
+          height: responsive.responsiveValue(
+              mobile: 1, desktop: 2, tablet: 3), // Spacing after the headline
         ),
 
         // Subtitle prompting the user to sign in
         Text(
           context.translate(subTitleText),
           style: Theme.of(context).textTheme.bodySmall!.copyWith(
-              fontSize: responsive
-                  .setTextSize(3.4)), // Adjust font size based on screen size
+              fontSize: responsive.responsiveTextSize(
+                  mobile: responsive.setTextSize(3.4),
+                  desktop: responsive.setTextSize(1.5),
+                  tablet: responsive.setTextSize(
+                      1.5))), // Adjust font size based on screen size
         ),
       ],
     );
