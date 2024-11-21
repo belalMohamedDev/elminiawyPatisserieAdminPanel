@@ -10,43 +10,36 @@ class AppInitialRoute {
   static final AppInitialRoute _instance = AppInitialRoute._();
 
   static bool isLoggedInUser = false;
-  static bool isOnBoardingScreen = false;
-  static bool isAnonymousUser = false;
-  static bool isLocatedMap = false;
 
   getStoreDataAndCheckInitialRoute() async {
-    var results = await Future.wait([
-      SharedPrefHelper.getSecuredString(PrefKeys.refreshToken),
-      SharedPrefHelper.getSecuredString(PrefKeys.enLocationArea),
-    ]);
+    String userToken =
+        await SharedPrefHelper.getSecuredString(PrefKeys.refreshToken);
 
-    bool? isOnBoardingScreenView =
-        SharedPrefHelper.getBool(PrefKeys.prefsKeyOnBoardingScreenView);
-    bool? isAnonymousUserlogic =
-        SharedPrefHelper.getBool(PrefKeys.prefsKeyAnonymousUser);
-
-    String? userToken = results[0] as String?;
-
-    String? locationArea = results[1] as String?;
+    if (userToken.isNullOrEmpty()) {
+      const cookies =
+          ''; 
+      if (cookies.isNotEmpty) {
+        final cookieMap = _parseCookies(cookies);
+        userToken = cookieMap['refreshToken'] ??
+            ''; 
+      }
+    }
 
     if (!userToken.isNullOrEmpty()) {
       isLoggedInUser = true;
     } else {
       isLoggedInUser = false;
     }
+  }
 
-    if (isOnBoardingScreenView == true) {
-      isOnBoardingScreen = true;
-    }
-
-    if (isAnonymousUserlogic == true) {
-      isAnonymousUser = true;
-    }
-
-    if (!locationArea.isNullOrEmpty()) {
-      isLocatedMap = true;
-    } else {
-      isLocatedMap = false;
-    }
+  Map<String, String> _parseCookies(String cookies) {
+    final cookieMap = <String, String>{};
+    cookies.split(';').forEach((cookie) {
+      final parts = cookie.split('=');
+      if (parts.length == 2) {
+        cookieMap[parts[0].trim()] = parts[1].trim();
+      }
+    });
+    return cookieMap;
   }
 }

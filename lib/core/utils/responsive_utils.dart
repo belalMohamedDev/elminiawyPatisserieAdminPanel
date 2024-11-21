@@ -117,9 +117,9 @@ class ResponsiveUtils {
   double responsiveTextSize({
     required double desktop,
     required double tablet,
-    required double mobile,
+     double? mobile,
   }) {
-    return responsiveValue(desktop: desktop, tablet: tablet, mobile: mobile);
+    return responsiveValue(desktop: desktop, tablet: tablet, mobile: mobile!);
   }
 
   // Get responsive padding
@@ -136,28 +136,33 @@ class Responsive extends StatelessWidget {
   final Widget? mobile;
   final Widget? tablet;
   final Widget? desktop;
+  final Widget? tabletAndDesktop;
 
   const Responsive({
     super.key,
     this.mobile,
     this.tablet,
     this.desktop,
+    this.tabletAndDesktop,
   });
 
   @override
   Widget build(BuildContext context) {
     final ResponsiveUtils utils = ResponsiveUtils(context);
 
-    // Ensure non-null widget is returned
-    if (utils.screenCategory == "desktop" && desktop != null) {
+    if ((utils.screenCategory == "desktop" ||
+            utils.screenCategory == "tablet") &&
+        tabletAndDesktop != null) {
+      return tabletAndDesktop!;
+    } else if (utils.screenCategory == "desktop" && desktop != null) {
       return desktop!;
     } else if (utils.screenCategory == "tablet" && tablet != null) {
       return tablet!;
     } else if (mobile != null) {
       return mobile!;
     } else {
-      // Fallback widget in case all are null
-      return const SizedBox.shrink();
+      return const SizedBox
+          .shrink();
     }
   }
 }

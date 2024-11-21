@@ -1,4 +1,5 @@
 import '../../../../../core/common/shared/shared_imports.dart'; //
+import 'dart:io';
 
 class TokenInterceptor extends Interceptor {
   final Dio dio;
@@ -10,62 +11,100 @@ class TokenInterceptor extends Interceptor {
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
     // Obtain the access token
+    String? accessToken;
 
-    String? accessToken =
-        await SharedPrefHelper.getSecuredString(PrefKeys.accessToken);
+    String? language =
+        SharedPrefHelper.getString(PrefKeys.prefsLanguage).isEmpty
+            ? 'en'
+            : SharedPrefHelper.getString(PrefKeys.prefsLanguage);
 
-    String? language = SharedPrefHelper.getString(PrefKeys.prefsLanguage).isEmpty?'en': SharedPrefHelper.getString(PrefKeys.prefsLanguage);
-    // Add the access token to the Authorization header
+    if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
+      accessToken =
+          await SharedPrefHelper.getSecuredString(PrefKeys.accessToken);
+    } else if (kIsWeb) {
+      final cookies = options.headers['cookie']?.toString();
+      if (cookies != null) {
+        final cookieMap = _parseCookies(cookies);
+        accessToken = cookieMap['accessToken'];
+      }
+    }
+
     options.headers["Accept"] = "application/json";
-    options.headers["Authorization"] = "Bearer $accessToken";
+    if (accessToken != null) {
+      options.headers["Authorization"] = "Bearer $accessToken";
+    }
     options.headers["lang"] = language;
 
-    return handler.next(options); // continue
+    return handler.next(options);
+  }
+
+  Map<String, String> _parseCookies(String cookies) {
+    final cookieMap = <String, String>{};
+    cookies.split(';').forEach((cookie) {
+      final parts = cookie.split('=');
+      if (parts.length == 2) {
+        cookieMap[parts[0].trim()] = parts[1].trim();
+      }
+    });
+    return cookieMap;
   }
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     if (err.response?.statusCode == 401) {
-      // Obtain the refresh token
-      String? refreshToken =
-          await SharedPrefHelper.getSecuredString(PrefKeys.refreshToken);
+      String? refreshToken;
 
-      try {
-        // Request a new access token
-        final response = await dio.post(
-          ApiConstants.refreshToken,
-          data: {'refreshToken': refreshToken},
-          options: Options(headers: {"Content-Type": "application/json"}),
-        );
+      if (Platform.isAndroid || Platform.isIOS) {
+        refreshToken =
+            await SharedPrefHelper.getSecuredString(PrefKeys.refreshToken);
+      } else {
+        final cookies = err.requestOptions.headers['cookie']?.toString();
+        if (cookies != null) {
+          final cookieMap = _parseCookies(cookies);
+          refreshToken = cookieMap['refreshToken'];
+        }
+      }
 
-        final newAccessToken = response.data['accessToken'];
+      if (refreshToken != null) {
+        try {
+          final response = await dio.post(
+            ApiConstants.refreshToken,
+            data: {'refreshToken': refreshToken},
+            options: Options(headers: {"Content-Type": "application/json"}),
+          );
 
-        // Save the new access token
-        await SharedPrefHelper.setSecuredString(
-            PrefKeys.accessToken, newAccessToken);
+          final newAccessToken = response.data['accessToken'];
 
-        final String fullPath = ApiConstants.baseUrl + err.requestOptions.path;
+          if (Platform.isAndroid || Platform.isIOS) {
+            await SharedPrefHelper.setSecuredString(
+                PrefKeys.accessToken, newAccessToken);
+          } else {
+            dio.options.headers['cookie'] =
+                'accessToken=$newAccessToken; path=/; HttpOnly;';
+          }
 
-        // Retry the original request with the new access token
-        err.requestOptions.headers["Authorization"] = "Bearer $newAccessToken";
-        final opts = Options(
+          final opts = Options(
             method: err.requestOptions.method,
-            headers: err.requestOptions.headers);
-        final cloneReq = await dio.request(
-          fullPath,
-          options: opts,
-          data: err.requestOptions.data,
-          queryParameters: err.requestOptions.queryParameters,
-        );
+            headers: err.requestOptions.headers
+              ..["Authorization"] = "Bearer $newAccessToken",
+          );
+          final cloneReq = await dio.request(
+            err.requestOptions.path,
+            options: opts,
+            data: err.requestOptions.data,
+            queryParameters: err.requestOptions.queryParameters,
+          );
 
-        return handler.resolve(cloneReq);
-      } catch (e) {
-        // Refresh token is also expired or invalid, force re-login
+          return handler.resolve(cloneReq);
+        } catch (e) {
+          _showSessionExpiredMessage();
+          return handler.reject(err);
+        }
+      } else {
         _showSessionExpiredMessage();
         return handler.reject(err);
       }
     } else if (err.response?.statusCode == 500) {
-      // Retry the request in case of a 500 error
       try {
         final cloneReq = await dio.request(
           err.requestOptions.path,
@@ -79,12 +118,11 @@ class TokenInterceptor extends Interceptor {
 
         return handler.resolve(cloneReq);
       } catch (e) {
-        // If retry fails, forward the error
         return handler.reject(err);
       }
     }
 
-    // If the error is not related to token expiration, forward it
+    // Forward other errors
     return handler.next(err);
   }
 

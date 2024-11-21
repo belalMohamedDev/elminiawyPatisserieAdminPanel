@@ -1,5 +1,5 @@
-const String imagePath = "asset/image";
-const String jsonPath = "asset/json";
+const String imagePath = "assets/image";
+const String jsonPath = "assets/json";
 
 class ImageAsset {
   //onBoading screen

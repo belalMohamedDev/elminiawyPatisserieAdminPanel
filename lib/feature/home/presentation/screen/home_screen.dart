@@ -1,9 +1,8 @@
-import '../../../../../core/common/shared/shared_imports.dart'; // Shared imports for project utilities
+import 'package:elminiawy/feature/home/presentation/refactor/home_body_screen.dart';
+import 'package:elminiawy/feature/home/presentation/refactor/prod.dart';
+import 'package:elminiawy/feature/home/presentation/refactor/side_menu.dart';
 
-/// `HomeScreen` is a `StatefulWidget` that manages the display of the home screen
-/// and handles notification services. It integrates Firebase Cloud Messaging
-/// for receiving notifications and interacts with the `MapCubit` for setting
-/// the user's location to "Home".
+import '../../../../../core/common/shared/shared_imports.dart'; // Shared imports for project utilities
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,54 +11,58 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-/// The state class `_HomeScreenState` manages the notification service,
-/// initializes it during the lifecycle, and handles the screen's main UI.
 class _HomeScreenState extends State<HomeScreen> {
-  // NotificationService instance to handle notifications throughout the app
-  late final NotificationService _notificationService;
+  /// Map to hold all possible pages, including sub-pages.
+  final Map<String, Widget> _allPages = {
+    "Home": const HomeBody(),
+    "Products": const ProductsPage(),
+    "Category": const CategoryPage(),
+    "SubCategory": const SubCategoryPage(),
+    "Banner": const BannerPage(),
+    "Orders": const OrdersPage(),
+    "Settings": const SettingsPage(),
+  };
 
-  @override
-  void initState() {
-    super.initState();
+  String _currentPageTitle = "Home";
 
-    // Initialize the NotificationService with a repository and notification callback
-    _notificationService = NotificationService(
-      instance<
-          UserNotificationRepositoryImplement>(), // Inject the user notification repository
-    );
-
-    // Delay the execution until after the first frame is rendered
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      // Retrieve the saved username from secure shared preferences
-      // Call MapCubit's function to set the location to "Home"
-      context.read<MapCubit>().setLocationToHome();
-
-      // If the username is present, start listening and fetching notifications
-      if (!AppInitialRoute.isAnonymousUser) {
-        _notificationService
-            .fetchNotificationsContinuously(); // Continuously fetch notifications
-      }
+  void _onItemTap(String pageTitle) {
+    setState(() {
+      _currentPageTitle = pageTitle;
+      
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // The Scaffold represents the main structure of the home screen
+    final responsive = ResponsiveUtils(context);
+
     return Scaffold(
-      // Pass the notification service to the body of the home screen
-      body: SafeArea(
-        child: HomeBody(
-          notificationService:
-              _notificationService, // Inject the notification service into the body
-        ),
+      backgroundColor: ColorManger.brun,
+      body: Row(
+        children: [
+          /// Side menu with dynamic titles and sub-items.
+          Expanded(
+            child: SideMenu(
+              selectedPage: _currentPageTitle,
+              onItemTap: _onItemTap,
+            ),
+          ),
+
+          /// Display the currently selected page.
+          Expanded(
+            flex: 5,
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: responsive.setHeight(2),
+                bottom: responsive.setHeight(1.5),
+                right: responsive.setWidth(1),
+                left: responsive.setWidth(1),
+              ),
+              child: _allPages[_currentPageTitle] ?? const HomeBody(),
+            ),
+          ),
+        ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    // Stop fetching notifications when the widget is disposed (e.g., user navigates away)
-    _notificationService.stopFetchingNotifications();
-    super.dispose();
   }
 }

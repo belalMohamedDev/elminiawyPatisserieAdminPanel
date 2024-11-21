@@ -111,6 +111,8 @@ dependencies:
   google_sign_in: ^6.2.1
   firebase_auth: ^5.3.1
   smooth_page_indicator: ^1.2.0+3
+  dio_cookie_manager: ^3.1.1
+  cookie_jar: ^4.0.8
 
 
 dev_dependencies:
@@ -139,8 +141,9 @@ flutter:
     - .env
     - lang/ar.json
     - lang/en.json
-    - asset/image/
-    - asset/json/
+    - assets/image/
+    - assets/icons/
+    - assets/json/
 
 
 
@@ -161,33 +164,33 @@ flutter:
   fonts:
     - family: Acme
       fonts:
-        - asset: asset/fonts/Acme-Regular.ttf
+        - asset: assets/fonts/Acme-Regular.ttf
 
 
     - family: Cairo
       fonts:
-        - asset: asset/fonts/Cairo-Black.ttf
+        - asset: assets/fonts/Cairo-Black.ttf
           weight: 900
 
-        - asset: asset/fonts/Cairo-Bold.ttf
+        - asset: assets/fonts/Cairo-Bold.ttf
           weight: 700
 
-        - asset: asset/fonts/Cairo-ExtraBold.ttf
+        - asset: assets/fonts/Cairo-ExtraBold.ttf
           weight: 800
 
-        - asset: asset/fonts/Cairo-ExtraLight.ttf
+        - asset: assets/fonts/Cairo-ExtraLight.ttf
           weight: 200
 
-        - asset: asset/fonts/Cairo-Light.ttf
+        - asset: assets/fonts/Cairo-Light.ttf
           weight: 300
 
-        - asset: asset/fonts/Cairo-Medium.ttf
+        - asset: assets/fonts/Cairo-Medium.ttf
           weight: 500
 
-        - asset: asset/fonts/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo-Regular.ttf
           weight: 400
 
-        - asset: asset/fonts/Cairo-SemiBold.ttf
+        - asset: assets/fonts/Cairo-SemiBold.ttf
           weight: 600    
 
   #

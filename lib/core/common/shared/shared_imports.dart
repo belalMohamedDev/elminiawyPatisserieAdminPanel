@@ -39,7 +39,6 @@ export '../../../../feature/address/data/model/request/create_address_request.da
 export '../../../../feature/address/presentation/widget/mapScrrenWidget/custom_map_marker.dart';
 export '../../../../feature/changeEmailAddress/presentation/refactor/change_email_body.dart';
 export '../../../../feature/changePassword/presentation/refactor/change_password_body.dart';
-export '../../../../feature/home/presentation/refactor/home_body.dart';
 export 'package:carousel_slider/carousel_slider.dart';
 export '../../../../core/common/sharedWidget/product_grid_view_loading.dart';
 export '../../../../core/common/sharedWidget/product_grid_view_success.dart';
@@ -147,7 +146,6 @@ export '../../../../feature/notification/presentation/screen/notification_screen
 export '../../../../feature/order/presentation/screen/my_orders_screen.dart';
 
 export '../../../../feature/address/presentation/screen/add_new_address_screen.dart';
-export '../../../../feature/bottomNavBar/presentation/nav_bar_view.dart';
 export '../../../feature/Authentication/logic/loginBloc/login_bloc.dart';
 export '../../../feature/Authentication/presentation/screens/sign_in_view.dart';
 export '../../../../feature/notification/logic/cubit/user_notification_cubit.dart';

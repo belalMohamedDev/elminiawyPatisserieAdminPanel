@@ -1,6 +1,5 @@
 import '../../../../../core/common/shared/shared_imports.dart'; //
 
-// Singleton class for handling login-related operations
 class AppLogin {
   factory AppLogin() {
     return _instance;
@@ -49,12 +48,10 @@ class AppLogin {
     }
 
     if (!isChangeUserPassword) {
-      // Set login status to true and navigate to the map screen
       SharedPrefHelper.setData(PrefKeys.prefsSetLoginMap, true);
 
-      // Ensure the context is still mounted before navigating
       if (context.mounted) {
-        context.pushReplacementNamed(Routes.map);
+        context.pushReplacementNamed(Routes.home);
       }
     }
   }

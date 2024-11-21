@@ -1,7 +1,7 @@
-
+import 'package:cookie_jar/cookie_jar.dart';
+import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 
 import '../../../../../core/common/shared/shared_imports.dart'; //
-
 
 const String applicationJson = 'application/json';
 const String contentType = 'contentType';
@@ -25,6 +25,8 @@ class DioFactory {
 
       dio?.interceptors.add(TokenInterceptor(dio!));
 
+      _addCookieManager();
+
       if (!kReleaseMode) {
         // It's debug mode so print app logs
         addDioInterceptor();
@@ -34,6 +36,12 @@ class DioFactory {
     } else {
       return dio!;
     }
+  }
+
+  static void _addCookieManager() {
+    if (kIsWeb) return;
+
+    dio?.interceptors.add(CookieManager(CookieJar()));
   }
 
   static void addDioInterceptor() {

@@ -10,16 +10,10 @@ class RouteGenerator {
               BlocProvider(
                 create: (context) => instance<LoginBloc>(),
               ),
-            
             ],
             child: const LoginView(),
           ),
         );
-   
-
-   
-
-     
 
       case Routes.address:
         return MaterialPageRoute(
@@ -62,7 +56,6 @@ class RouteGenerator {
               BlocProvider(
                 create: (context) => instance<AccountInformationCubit>(),
               ),
-           
             ],
             child: const AccountInfomation(),
           ),
@@ -83,35 +76,7 @@ class RouteGenerator {
           ),
         );
 
-      case Routes.bottomNavBarRoute:
-        return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
-            providers: [
-              BlocProvider.value(
-                value: instance<UserAddressCubit>(),
-              ),
-              BlocProvider(
-                create: (context) => instance<BannerCubit>(),
-              ),
-              BlocProvider(
-                create: (context) => instance<CategoryCubit>(),
-              ),
-              BlocProvider.value(
-                value: instance<MapCubit>(),
-              ),
-              BlocProvider.value(
-                value: instance<CartCubit>(),
-              ),
-              BlocProvider.value(
-                value: instance<ProductCubit>(),
-              ),
-              BlocProvider.value(
-                value: instance<WishListCubit>(),
-              ),
-            ],
-            child: const BottomNavBar(),
-          ),
-        );
+
 
       case Routes.newProduct:
         return MaterialPageRoute(
@@ -160,6 +125,11 @@ class RouteGenerator {
                   value: instance<PaymentCubit>(),
                   child: const MyOrdersScreen(),
                 ));
+
+      case Routes.home:
+        return MaterialPageRoute(
+          builder: (_) => const HomeScreen(),
+        );
 
       case Routes.wishList:
         return MaterialPageRoute(

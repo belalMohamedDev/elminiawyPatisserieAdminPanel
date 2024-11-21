@@ -12,7 +12,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool _isDependenciesLoaded = false;
+  // bool _isDependenciesLoaded = false;
 
   @override
   void initState() {
@@ -23,9 +23,9 @@ class _MyAppState extends State<MyApp> {
 
     // Listen to the connectivity changes and initialize services if connected
     ConnectivityController.instance.connectivityStream.listen((isConnected) {
-      if (isConnected) {
-        _initializeDependencies(); // Call initialization only when connected
-      }
+      // if (isConnected) {
+      //   _initializeDependencies(); // Call initialization only when connected
+      // }
     });
   }
 
@@ -88,25 +88,25 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  Future<void> _initializeDependencies() async {
-    if (_isDependenciesLoaded) return;
+  // Future<void> _initializeDependencies() async {
+  //   if (_isDependenciesLoaded) return;
 
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+  //   await Firebase.initializeApp(
+  //     options: DefaultFirebaseOptions.currentPlatform,
+  //   );
 
-    await FirebaseCloudMessaging().init();
-    await LocalNotificationService.init();
+  //   await FirebaseCloudMessaging().init();
+  //   await LocalNotificationService.init();
 
-    setState(() {
-      _isDependenciesLoaded = true;
-    });
-  }
+  //   setState(() {
+  //     _isDependenciesLoaded = true;
+  //   });
+  // }
 
   // Extracted logic for determining the initial route
   String _getInitialRoute() {
     if (AppInitialRoute.isLoggedInUser) {
-      return Routes.bottomNavBarRoute;
+      return Routes.home;
     } else {
       return Routes.loginRoute;
     }
