@@ -121,7 +121,7 @@ abstract class AppServiceClient {
   );
 
   @PUT(ApiConstants.updateMyEmailAddress)
-  Future<UpdateEmailAddressResponse> updateMyEmailAddress(
+  Future<AuthResponse> updateMyEmailAddress(
     @Body() ChangeEmailRequestBody changeEmailRequestBody,
   );
 

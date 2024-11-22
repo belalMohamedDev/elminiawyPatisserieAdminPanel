@@ -1,6 +1,3 @@
-
-
-
 import '../../../../core/common/shared/shared_imports.dart'; // Import the barrel file
 
 part 'log_out_state.dart';
@@ -32,8 +29,7 @@ class LogOutCubit extends Cubit<LogOutState> {
       },
       failure: (error) {
         emit(
-          LogOutState.logOutError(
-            error),
+          LogOutState.logOutError(error),
         );
       },
     );
@@ -46,16 +42,13 @@ class LogOutCubit extends Cubit<LogOutState> {
   }
 
   void checkTokenThenDoLogOut(BuildContext context) async {
-    final userToken =
-        await SharedPrefHelper.getSecuredString(PrefKeys.refreshToken);
+    final userToken = SharedPrefHelper.getString(PrefKeys.refreshToken);
 
-    if (!userToken.isNullOrEmpty()) {
-      await logOut(userToken);
-    } else {
-      if (context.mounted) {
-        Navigator.of(context, rootNavigator: !false)
-            .pushNamedAndRemoveUntil(Routes.loginRoute, (Route route) => false);
-      }
+    await logOut(userToken);
+
+    if (context.mounted) {
+      Navigator.of(context, rootNavigator: !false)
+          .pushNamedAndRemoveUntil(Routes.loginRoute, (Route route) => false);
     }
   }
 }

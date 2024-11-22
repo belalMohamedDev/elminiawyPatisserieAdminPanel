@@ -1,4 +1,5 @@
 import '../../../../../core/common/shared/shared_imports.dart'; //
+import 'dart:io';
 
 class AppLogin {
   factory AppLogin() {
@@ -23,36 +24,33 @@ class AppLogin {
 
     // Ensure necessary fields are not null before storing them
     if (authResponse.data!.phone != null) {
-      await SharedPrefHelper.setSecuredString(
+      await SharedPrefHelper.setData(
           PrefKeys.userPhone, authResponse.data!.phone!);
     }
     if (authResponse.data!.name != null) {
-      await SharedPrefHelper.setSecuredString(
+      await SharedPrefHelper.setData(
           PrefKeys.userName, authResponse.data!.name!);
     }
     if (authResponse.data!.email != null) {
-      await SharedPrefHelper.setSecuredString(
+      await SharedPrefHelper.setData(
           PrefKeys.userEmail, authResponse.data!.email!);
     }
     if (authResponse.data!.sId != null) {
-      await SharedPrefHelper.setSecuredString(
-          PrefKeys.userId, authResponse.data!.sId!);
+      await SharedPrefHelper.setData(PrefKeys.userId, authResponse.data!.sId!);
     }
     if (authResponse.accessToken != null) {
-      await SharedPrefHelper.setSecuredString(
+      await SharedPrefHelper.setData(
           PrefKeys.accessToken, authResponse.accessToken!);
     }
     if (authResponse.data!.refreshToken != null) {
-      await SharedPrefHelper.setSecuredString(
-          PrefKeys.refreshToken, authResponse.data!.refreshToken!);
+      if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
+        await SharedPrefHelper.setData(
+            PrefKeys.refreshToken, authResponse.data!.refreshToken!);
+      }
     }
 
-    if (!isChangeUserPassword) {
-      SharedPrefHelper.setData(PrefKeys.prefsSetLoginMap, true);
-
-      if (context.mounted) {
-        context.pushReplacementNamed(Routes.home);
-      }
+    if (context.mounted) {
+      context.pushReplacementNamed(Routes.home);
     }
   }
 }

@@ -294,7 +294,7 @@ export '../../../feature/address/data/model/request/check_address_available.dart
 export '../../../feature/address/data/model/response/check_address_available.dart';
 export '../../../feature/cart/data/model/bodyRequest/add_item.dart';
 export '../../../feature/changeEmailAddress/data/model/request/change_email_request.dart';
-export '../../../feature/changeEmailAddress/data/model/response/change_email_response.dart';
+
 export '../../../feature/home/data/model/response/banner_response.dart';
 export '../../../feature/profile/data/model/response/log_out_response.dart';
 

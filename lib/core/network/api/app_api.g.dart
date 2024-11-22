@@ -779,14 +779,14 @@ class _AppServiceClient implements AppServiceClient {
   }
 
   @override
-  Future<UpdateEmailAddressResponse> updateMyEmailAddress(
+  Future<AuthResponse> updateMyEmailAddress(
       ChangeEmailRequestBody changeEmailRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(changeEmailRequestBody.toJson());
-    final _options = _setStreamType<UpdateEmailAddressResponse>(Options(
+    final _options = _setStreamType<AuthResponse>(Options(
       method: 'PUT',
       headers: _headers,
       extra: _extra,
@@ -803,9 +803,9 @@ class _AppServiceClient implements AppServiceClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late UpdateEmailAddressResponse _value;
+    late AuthResponse _value;
     try {
-      _value = UpdateEmailAddressResponse.fromJson(_result.data!);
+      _value = AuthResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

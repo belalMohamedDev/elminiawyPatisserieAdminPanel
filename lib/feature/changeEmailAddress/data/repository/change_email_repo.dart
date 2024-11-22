@@ -5,7 +5,7 @@ class ChangeEmailAddressRepository {
   final AppServiceClient _apiService;
 
 
-  Future<ApiResult<UpdateEmailAddressResponse>> changeMyEmailAddress(
+  Future<ApiResult<AuthResponse>> changeMyEmailAddress(
     ChangeEmailRequestBody changeEmailRequestBody,
   ) async {
 

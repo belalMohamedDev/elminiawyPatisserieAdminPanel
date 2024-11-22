@@ -11,28 +11,17 @@ class TokenInterceptor extends Interceptor {
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
     // Obtain the access token
-    String? accessToken;
+    String? accessToken = SharedPrefHelper.getString(PrefKeys.accessToken);
 
     String? language =
         SharedPrefHelper.getString(PrefKeys.prefsLanguage).isEmpty
             ? 'en'
             : SharedPrefHelper.getString(PrefKeys.prefsLanguage);
 
-    if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
-      accessToken =
-          await SharedPrefHelper.getSecuredString(PrefKeys.accessToken);
-    } else if (kIsWeb) {
-      final cookies = options.headers['cookie']?.toString();
-      if (cookies != null) {
-        final cookieMap = _parseCookies(cookies);
-        accessToken = cookieMap['accessToken'];
-      }
-    }
-
     options.headers["Accept"] = "application/json";
-    if (accessToken != null) {
-      options.headers["Authorization"] = "Bearer $accessToken";
-    }
+
+    options.headers["Authorization"] = "Bearer $accessToken";
+
     options.headers["lang"] = language;
 
     return handler.next(options);
@@ -56,7 +45,7 @@ class TokenInterceptor extends Interceptor {
 
       if (Platform.isAndroid || Platform.isIOS) {
         refreshToken =
-            await SharedPrefHelper.getSecuredString(PrefKeys.refreshToken);
+           SharedPrefHelper.getString(PrefKeys.refreshToken);
       } else {
         final cookies = err.requestOptions.headers['cookie']?.toString();
         if (cookies != null) {
@@ -76,7 +65,7 @@ class TokenInterceptor extends Interceptor {
           final newAccessToken = response.data['accessToken'];
 
           if (Platform.isAndroid || Platform.isIOS) {
-            await SharedPrefHelper.setSecuredString(
+            await SharedPrefHelper.setData(
                 PrefKeys.accessToken, newAccessToken);
           } else {
             dio.options.headers['cookie'] =

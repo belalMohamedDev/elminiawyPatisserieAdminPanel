@@ -28,8 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
   void _onItemTap(String pageTitle) {
     setState(() {
       _currentPageTitle = pageTitle;
-      
     });
+
+
   }
 
   @override
