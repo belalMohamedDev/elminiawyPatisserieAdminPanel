@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 
+
 import '../../../../../core/common/shared/shared_imports.dart'; //
 
 void main() async {
@@ -13,6 +14,8 @@ void main() async {
       await AppInitialRoute().getStoreDataAndCheckInitialRoute();
     },
   );
+
+  //debugPaintSizeEnabled = true;
 
   await initAppModule();
 

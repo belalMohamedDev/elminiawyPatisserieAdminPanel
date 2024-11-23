@@ -10,13 +10,10 @@ class ProductCubit extends Cubit<ProductState> {
 
   List<DataProductResponse> dataList = [];
 
-  // static const int _retryLimit = 3;
-  // int _retryCount = 0;
-
-  Future<void> getProduct() async {
+  void getProduct() async {
     emit(const ProductState.getProductLoading());
 
-    final response = await _productRepository.getNewProduct();
+    final response = await _productRepository.getProductServices();
 
     response.when(
       success: (dataResponse) {
@@ -28,16 +25,6 @@ class ProductCubit extends Cubit<ProductState> {
       },
       failure: (error) {
         ProductState.getProductError(error);
-        // if (_retryCount < _retryLimit) {
-        //   _retryCount++;
-        //   // Retry the request
-        //   getProduct();
-        // } else {
-        //   emit(
-        //     ProductState.getProductError(error),
-        //   );
-        //   _retryCount = 0; // Reset retry count after reaching the retry limit
-        // }
       },
     );
   }

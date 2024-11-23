@@ -44,8 +44,9 @@ class SharedPrefHelper {
         "SharedPrefHelper: Setting data with key: $key and value: $value");
     if (value is String) {
       final encrypted = _encrypter.encrypt(value, iv: _iv);
-      debugPrint("Encrypted data: ${encrypted.base64}");
-      await sharedPreferences.setString(key, encrypted.base64);
+      final combined = "${_iv.base64}:${encrypted.base64}";
+      debugPrint("Encrypted data: $combined");
+      await sharedPreferences.setString(key, combined);
     } else if (value is int) {
       await sharedPreferences.setInt(key, value);
     } else if (value is bool) {
@@ -80,15 +81,35 @@ class SharedPrefHelper {
 
   /// Gets a String value from SharedPreferences with the given [key].
   static String getString(String key) {
+    // debugPrint('SharedPrefHelper: Getting string with key: $key');
+
+    // final encryptedBase64 = sharedPreferences.getString(key);
+    // if (encryptedBase64 != null) {
+    //   debugPrint("Encrypted base64: $encryptedBase64");
+    //   final encryptedData = encrypt.Encrypted.fromBase64(encryptedBase64);
+    //   final decrypted = _encrypter.decrypt(encryptedData, iv: _iv);
+    //   debugPrint("Decrypted value: $decrypted");
+    //   return decrypted;
+    // }
+    // return '';
+
     debugPrint('SharedPrefHelper: Getting string with key: $key');
 
-    final encryptedBase64 = sharedPreferences.getString(key);
-    if (encryptedBase64 != null) {
-      debugPrint("Encrypted base64: $encryptedBase64");
-      final encryptedData = encrypt.Encrypted.fromBase64(encryptedBase64);
-      final decrypted = _encrypter.decrypt(encryptedData, iv: _iv);
-      debugPrint("Decrypted value: $decrypted");
-      return decrypted;
+    final combined = sharedPreferences.getString(key);
+    if (combined != null) {
+      try {
+        final parts = combined.split(':');
+        if (parts.length != 2) throw Exception('Invalid encrypted data format');
+
+        final iv = encrypt.IV.fromBase64(parts[0]);
+        final encryptedData = encrypt.Encrypted.fromBase64(parts[1]);
+        final decrypted = _encrypter.decrypt(encryptedData, iv: iv);
+        debugPrint("Decrypted value: $decrypted");
+        return decrypted;
+      } catch (e) {
+        debugPrint("Decryption error: $e");
+        return '';
+      }
     }
     return '';
   }

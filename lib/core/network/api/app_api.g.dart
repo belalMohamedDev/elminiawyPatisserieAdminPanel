@@ -171,7 +171,7 @@ class _AppServiceClient implements AppServiceClient {
     )
         .compose(
           _dio.options,
-          '/v1/api/product/newProduct',
+          '/v1/api/product',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -213,7 +213,7 @@ class _AppServiceClient implements AppServiceClient {
     )
         .compose(
           _dio.options,
-          '/v1/api/product/newProduct',
+          '/v1/api/product',
           queryParameters: queryParameters,
           data: _data,
         )

@@ -34,10 +34,10 @@ abstract class AppServiceClient {
     @Query("sort") String sort,
   );
 
-  @GET(ApiConstants.newProduct)
+  @GET(ApiConstants.product)
   Future<ProductResponse> getProduct();
 
-    @GET(ApiConstants.newProduct)
+    @GET(ApiConstants.product)
   Future<ProductResponse> searchInProductService(
    @Query("sort") String? sort,
     @Query("keyword") String? keyword,

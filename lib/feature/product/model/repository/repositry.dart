@@ -7,7 +7,7 @@ class ProductRepository {
 
   final AppServiceClient _apiService;
 
-  Future<ApiResult<ProductResponse>> getNewProduct(
+  Future<ApiResult<ProductResponse>> getProductServices(
     ) async {
   
       try {

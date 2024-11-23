@@ -48,7 +48,7 @@ export '../../../feature/Authentication/presentation/refactors/signIn/password_l
 export '../../../feature/Authentication/presentation/refactors/signIn/sign_in_button.dart';
 export 'package:flutter/gestures.dart';
 export '../../../core/enums/filter_button_enum.dart';
-export '../../../../feature/newProduct/presentation/refactor/new_product_body.dart';
+export '../../../feature/product/presentation/refactor/new_product_body.dart';
 export '../../../../feature/productBasedOnCategory/presentation/refactor/get_product_based_on_category_body.dart';
 export '../../../../feature/search/presentation/screen/empty_search.dart';
 export '../../../../feature/search/presentation/widget/filter_bottom_sheet.dart';
@@ -99,7 +99,7 @@ export 'package:flutter_iconly/flutter_iconly.dart';
 export 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 export '../../../feature/cart/cubit/cart_cubit.dart';
-export '../../../feature/newProduct/model/response/product_response.dart';
+export '../../../feature/product/model/response/product_response.dart';
 export '../../../feature/productDetails/product_model_sheet.dart';
 export '../../../feature/wishList/cubit/wish_list_cubit.dart';
 export '../../../feature/wishList/data/model/getWishListResponse/response.dart';
@@ -123,7 +123,7 @@ export '../../language/strings_manger.dart';
 export '../../../../core/style/theme/theme_manger.dart';
 export '../../../../core/utils/extensions.dart';
 export '../../../../feature/address/presentation/screen/map_screen.dart';
-export '../../../../feature/newProduct/Cubit/product_cubit.dart';
+export '../../../feature/product/Cubit/product_cubit.dart';
 
 export '../../../../feature/order/cubit/payment_cubit.dart';
 export '../../../../feature/profile/cubit/log_out_cubit.dart';
@@ -141,7 +141,7 @@ export '../../../../feature/address/logic/mapCubit/map_cubit.dart';
 export '../../../../feature/changeEmailAddress/cubit/change_email_address_cubit.dart';
 export '../../../../feature/changeEmailAddress/presentation/screen/change_email.dart';
 export '../../../../feature/changePassword/presentation/screen/change_password_screen.dart';
-export '../../../../feature/newProduct/presentation/screen/new_product_screen.dart';
+export '../../../feature/product/presentation/screen/new_product_screen.dart';
 export '../../../../feature/notification/presentation/screen/notification_screen.dart';
 export '../../../../feature/order/presentation/screen/my_orders_screen.dart';
 
@@ -237,7 +237,7 @@ export 'package:internet_connection_checker/internet_connection_checker.dart';
 
 export '../../../../feature/accountInfo/data/repository/update_account_information.dart';
 export '../../../../feature/home/data/repository/repositry.dart';
-export '../../../../feature/newProduct/model/repository/repositry.dart';
+export '../../../feature/product/model/repository/repositry.dart';
 export '../../../../feature/address/data/repository/address_repo.dart';
 export '../../../../feature/wishList/data/repository/repository.dart';
 export '../../../../firebase_options.dart';

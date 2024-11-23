@@ -15,7 +15,10 @@ class _HomeScreenState extends State<HomeScreen> {
   /// Map to hold all possible pages, including sub-pages.
   final Map<String, Widget> _allPages = {
     "Home": const HomeBody(),
-    "Products": const ProductsPage(),
+    "Products": BlocProvider(
+      create: (context) => instance<ProductCubit>(),
+      child: const ProductsPage(),
+    ),
     "Category": const CategoryPage(),
     "SubCategory": const SubCategoryPage(),
     "Banner": const BannerPage(),
@@ -29,8 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       _currentPageTitle = pageTitle;
     });
-
-
   }
 
   @override
