@@ -54,11 +54,17 @@ DataProductResponse _$DataProductResponseFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String?,
       sId: json['_id'] as String?,
       price: (json['price'] as num?)?.toDouble(),
-      subCategory: json['subCategory'] as String?,
+      subCategory: json['subCategory'] == null
+          ? null
+          : CategoryAndSubCategoryModel.fromJson(
+              json['subCategory'] as Map<String, dynamic>),
       image: json['image'] as String?,
       publicId: json['publicId'] as String?,
       ratingsQuantity: (json['ratingsQuantity'] as num?)?.toInt(),
-      category: json['category'] as String?,
+      category: json['category'] == null
+          ? null
+          : CategoryAndSubCategoryModel.fromJson(
+              json['category'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$DataProductResponseToJson(
@@ -76,4 +82,18 @@ Map<String, dynamic> _$DataProductResponseToJson(
       'category': instance.category,
       'in_cart': instance.inCart,
       'in_wishlist': instance.inWishlist,
+    };
+
+CategoryAndSubCategoryModel _$CategoryAndSubCategoryModelFromJson(
+        Map<String, dynamic> json) =>
+    CategoryAndSubCategoryModel(
+      title: json['title'] as String?,
+      sId: json['_id'] as String?,
+    );
+
+Map<String, dynamic> _$CategoryAndSubCategoryModelToJson(
+        CategoryAndSubCategoryModel instance) =>
+    <String, dynamic>{
+      '_id': instance.sId,
+      'title': instance.title,
     };

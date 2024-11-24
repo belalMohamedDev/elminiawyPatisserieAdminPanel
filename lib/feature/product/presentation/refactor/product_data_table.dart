@@ -13,7 +13,7 @@ class ProductDataTable extends StatelessWidget {
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Padding(
-              padding: responsive.setPadding(left: 2, bottom: 5),
+              padding: responsive.setPadding(left: 1, bottom: 5),
               child: DataTable(
                 decoration: BoxDecoration(
                     color: ColorManger.brun,
@@ -22,7 +22,8 @@ class ProductDataTable extends StatelessWidget {
                         width: responsive.setWidth(0.13)),
                     borderRadius:
                         BorderRadius.circular(responsive.setBorderRadius(0.9))),
-                columnSpacing: responsive.setWidth(5),
+                columnSpacing: responsive.setWidth(0.2),
+                horizontalMargin: 0,
                 dataRowMinHeight: responsive.setHeight(2),
                 dataRowMaxHeight: responsive.setHeight(6),
                 columns: dataTableColumn(context),
@@ -43,17 +44,20 @@ class ProductDataTable extends StatelessWidget {
     return [
       DataColumn(
           label: SizedBox(
-        width: responsive.setWidth(5),
-        child: Text(
-          context.translate(AppStrings.image),
-          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                fontSize: responsive.setTextSize(1), // Uses theme styling
-              ),
+        width: responsive.setWidth(6),
+        child: Padding(
+          padding: responsive.setPadding(left: 1),
+          child: Text(
+            context.translate(AppStrings.image),
+            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  fontSize: responsive.setTextSize(1), // Uses theme styling
+                ),
+          ),
         ),
       )),
       DataColumn(
           label: SizedBox(
-        width: responsive.setWidth(10.5),
+        width: responsive.setWidth(13),
         child: Text(
           context.translate(AppStrings.name),
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
@@ -63,7 +67,7 @@ class ProductDataTable extends StatelessWidget {
       )),
       DataColumn(
           label: SizedBox(
-        width: responsive.setWidth(12),
+        width: responsive.setWidth(20),
         child: Text(
           context.translate(AppStrings.description),
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
@@ -83,9 +87,19 @@ class ProductDataTable extends StatelessWidget {
       )),
       DataColumn(
           label: SizedBox(
-        width: responsive.setWidth(11),
+        width: responsive.setWidth(15),
         child: Text(
           context.translate(AppStrings.category),
+          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                fontSize: responsive.setTextSize(1), // Uses theme styling
+              ),
+        ),
+      )),
+      DataColumn(
+          label: SizedBox(
+        width: responsive.setWidth(13),
+        child: Text(
+          context.translate(AppStrings.subCategory),
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                 fontSize: responsive.setTextSize(1), // Uses theme styling
               ),
@@ -108,15 +122,16 @@ class ProductDataTable extends StatelessWidget {
     final responsive = ResponsiveUtils(context);
     return DataRow(
       cells: [
-        DataCell(CachedNetworkImage(
-          imageUrl: product.image!,
-          width: 60,
-          height: 60,
-          placeholder: (context, url) => const LoadingShimmer(),
-          errorWidget: (context, url, error) => const Icon(Icons.error),
+        DataCell(SizedBox(
+          width: responsive.setWidth(5),
+          child: CachedNetworkImage(
+            imageUrl: product.image!,
+            placeholder: (context, url) => const LoadingShimmer(),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+          ),
         )),
         DataCell(SizedBox(
-            width: responsive.setWidth(10),
+            width: responsive.setWidth(13),
             child: Text(
               product.title!,
               style: Theme.of(context).textTheme.headlineSmall!.copyWith(
@@ -124,7 +139,7 @@ class ProductDataTable extends StatelessWidget {
                   ),
             ))),
         DataCell(SizedBox(
-            width: responsive.setWidth(12),
+            width: responsive.setWidth(20),
             child: Text(
               product.description!,
               style: Theme.of(context).textTheme.headlineSmall!.copyWith(
@@ -140,9 +155,18 @@ class ProductDataTable extends StatelessWidget {
                   ),
             ))),
         DataCell(SizedBox(
-            width: responsive.setWidth(12),
+            width: responsive.setWidth(15),
             child: Text(
-              product.category!,
+              product.category!.title!,
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    fontSize: responsive.setTextSize(1),
+                    // Uses theme styling
+                  ),
+            ))),
+        DataCell(SizedBox(
+            width: responsive.setWidth(13),
+            child: Text(
+              product.subCategory!.title!,
               style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                     fontSize: responsive.setTextSize(1),
                     // Uses theme styling

@@ -12,14 +12,12 @@ class ProductResponse {
 
   ProductResponse({this.status, this.message, this.paginationRuslt, this.data});
 
-
   //from json
   factory ProductResponse.fromJson(Map<String, dynamic> json) =>
       _$ProductResponseFromJson(json);
 
   //to json
   Map<String, dynamic> toJson() => _$ProductResponseToJson(this);
-
 }
 
 @JsonSerializable()
@@ -32,7 +30,6 @@ class PaginationRuslt {
 
   PaginationRuslt(
       {this.currentPage, this.limit, this.skip, this.numberOfPages, this.next});
-
 
   //from json
   factory PaginationRuslt.fromJson(Map<String, dynamic> json) =>
@@ -50,11 +47,11 @@ class DataProductResponse {
   @JsonKey(name: "_id")
   String? sId;
   double? price;
-  String? subCategory;
+  CategoryAndSubCategoryModel? subCategory;
   String? image;
   String? publicId;
   int? ratingsQuantity;
-  String? category;
+  CategoryAndSubCategoryModel? category;
   @JsonKey(name: "in_cart")
   bool? inCart;
   @JsonKey(name: "in_wishlist")
@@ -74,11 +71,30 @@ class DataProductResponse {
       this.ratingsQuantity,
       this.category});
 
-
   //from json
   factory DataProductResponse.fromJson(Map<String, dynamic> json) =>
       _$DataProductResponseFromJson(json);
 
   //to json
   Map<String, dynamic> toJson() => _$DataProductResponseToJson(this);
+}
+
+@JsonSerializable()
+class CategoryAndSubCategoryModel {
+  @JsonKey(name: "_id")
+  String? sId;
+
+  String? title;
+
+  CategoryAndSubCategoryModel({
+    this.title,
+    this.sId,
+  });
+
+  //from json
+  factory CategoryAndSubCategoryModel.fromJson(Map<String, dynamic> json) =>
+      _$CategoryAndSubCategoryModelFromJson(json);
+
+  //to json
+  Map<String, dynamic> toJson() => _$CategoryAndSubCategoryModelToJson(this);
 }

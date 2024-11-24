@@ -34,6 +34,7 @@ class AppStrings {
   static const String image = "image";
   static const String name = "name";
   static const String procedures = "procedures";
+  static const String subCategory = "subCategory";
       
 
   static const String thisAccountNotAccessInThisApp =
