@@ -76,25 +76,23 @@ class RouteGenerator {
           ),
         );
 
-
-
-      case Routes.newProduct:
-        return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
-            providers: [
-              BlocProvider.value(
-                value: instance<CartCubit>(),
-              ),
-              BlocProvider.value(
-                value: instance<ProductCubit>(),
-              ),
-              BlocProvider.value(
-                value: instance<WishListCubit>(),
-              ),
-            ],
-            child: const NewProductView(),
-          ),
-        );
+      // case Routes.newProduct:
+      //   return MaterialPageRoute(
+      //     builder: (_) => MultiBlocProvider(
+      //       providers: [
+      //         BlocProvider.value(
+      //           value: instance<CartCubit>(),
+      //         ),
+      //         BlocProvider.value(
+      //           value: instance<ProductCubit>(),
+      //         ),
+      //         BlocProvider.value(
+      //           value: instance<WishListCubit>(),
+      //         ),
+      //       ],
+      //       child: const NewProductView(),
+      //     ),
+      //   );
 
       case Routes.notification:
         return MaterialPageRoute(
@@ -128,7 +126,10 @@ class RouteGenerator {
 
       case Routes.home:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) => BlocProvider.value(
+            value: instance<ProductCubit>(),
+            child: const HomeScreen(),
+          ),
         );
 
       case Routes.wishList:

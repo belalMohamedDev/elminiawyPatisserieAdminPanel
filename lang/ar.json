@@ -20,6 +20,12 @@
   "priceRange": "نطاق السعر",
   "opps": "عذرًا! ....",
   "office": "مكتب",
+    "productsList": "قائمة المنتجات",
+      "addProduct":"اضافة منتج",
+      "image":"الصورة",
+     "name":  "الاسم",
+     "procedures" :"الإجراءات",
+
   "continueWithoutSigningUp":"استمرار بدون تسجيل",
 
   "somethingWrongWithYourConnection": "هناك خطأ ما في اتصالك، يرجى المحاولة مرة أخرى بعد لحظة.",
@@ -110,7 +116,7 @@
   "seeAll": "رؤية الكل",
   "description": "الوصف",
   "addToCart": "أضف إلى السلة",
-  "price": "السعر:",
+  "price": "السعر",
   "egy": "جنيه",
   "pickLocation": "اختر الموقع",
   "addressNotFoundInThisArea": "العنوان غير موجود في هذه المنطقة",

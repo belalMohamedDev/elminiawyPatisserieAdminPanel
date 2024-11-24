@@ -17,7 +17,9 @@ export '../../../../core/utils/app_initial_route.dart';
 export '../../../../core/utils/app_login.dart';
 export '../../../../core/common/sharedWidget/loading_overlay.dart';
 export '../../../../feature/Authentication/presentation/sharedWidgetBetweenScreen/headline_text_auth_screen.dart';
-
+export '../../../../feature/product/presentation/refactor/product_list_and_add_product_button.dart';
+export '../../../../feature/product/presentation/refactor/search_product.dart';
+export '../../../../feature/product/presentation/refactor/product_data_table.dart';
 
 export 'package:firebase_core/firebase_core.dart';
 export 'package:google_sign_in/google_sign_in.dart';
@@ -30,7 +32,7 @@ export '../../../feature/Authentication/presentation/sharedWidgetBetweenScreen/l
 
 export '../../../../core/language/app_localizations_delegate.dart';
 export 'dart:convert' show json;
- // Import shared utilities
+// Import shared utilities
 export 'package:rxdart/rxdart.dart';
 export 'package:connectivity_plus/connectivity_plus.dart';
 export '../../../../core/style/fonts/styles_manger.dart';
@@ -56,8 +58,6 @@ export '../../../../feature/search/presentation/refactor/search_body.dart';
 export 'package:flutter_verification_code/flutter_verification_code.dart';
 export '../../../../feature/wishList/presentation/refactor/wishlist_body.dart';
 export '../../../../app.dart';
-
-
 
 export '../../../../core/common/sharedWidget/search_row.dart';
 export '../../../../feature/home/presentation/widget/banner_carousel_slider.dart';
@@ -141,7 +141,7 @@ export '../../../../feature/address/logic/mapCubit/map_cubit.dart';
 export '../../../../feature/changeEmailAddress/cubit/change_email_address_cubit.dart';
 export '../../../../feature/changeEmailAddress/presentation/screen/change_email.dart';
 export '../../../../feature/changePassword/presentation/screen/change_password_screen.dart';
-export '../../../feature/product/presentation/screen/new_product_screen.dart';
+export '../../../feature/product/presentation/screen/product_screen.dart';
 export '../../../../feature/notification/presentation/screen/notification_screen.dart';
 export '../../../../feature/order/presentation/screen/my_orders_screen.dart';
 
@@ -151,7 +151,6 @@ export '../../../feature/Authentication/presentation/screens/sign_in_view.dart';
 export '../../../../feature/notification/logic/cubit/user_notification_cubit.dart';
 export '../../../../feature/address/presentation/screen/user_address_screen.dart';
 export '../../../../feature/wishList/presentation/screen/wishlist_screen.dart';
-
 
 export '../../../../feature/accountInfo/cubit/account_information_cubit.dart'
     hide GetStorageData;
@@ -193,7 +192,6 @@ export '../../../../feature/address/presentation/widget/mapScrrenWidget/current_
 export '../../../../feature/address/presentation/widget/mapScrrenWidget/google_map_widget.dart';
 export '../../../../feature/address/presentation/widget/mapScrrenWidget/pick_location_button.dart';
 
-
 export '../../../../feature/address/presentation/widget/addNewAddressScreenWidget/add_information_text_form_field.dart';
 
 export '../../../../feature/address/presentation/widget/addNewAddressScreenWidget/chooce_region_area_toggel.dart';
@@ -226,8 +224,6 @@ export '../../../../feature/notification/data/repository/user_notification_repo.
 export '../../../../feature/order/data/repository/order_repo.dart';
 export '../../../../feature/productBasedOnCategory/data/repository/product_category_repo.dart';
 export '../../../../core/application/notification_Controller.dart';
-
-
 
 export '../../../../feature/notification/data/model/user_notification_resp.dart';
 
@@ -298,9 +294,6 @@ export '../../../feature/changeEmailAddress/data/model/request/change_email_requ
 export '../../../feature/home/data/model/response/banner_response.dart';
 export '../../../feature/profile/data/model/response/log_out_response.dart';
 
-
-
-
 export '../../../core/network/api_constant/api_constant.dart';
 
 export '../../../core/network/success/api_success_general.dart';
@@ -316,4 +309,3 @@ export '../../../core/services/pushNotification/firebase_messaging_navig.dart';
 export 'package:firebase_messaging/firebase_messaging.dart';
 
 export 'package:flutter_local_notifications/flutter_local_notifications.dart';
-

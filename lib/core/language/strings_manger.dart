@@ -20,6 +20,7 @@ class AppStrings {
   static const String sortBy = "sortBy";
   static const String nameAToZ = "nameAToZ";
   static const String nameZToA = "nameZToA";
+  static const String productsList = "productsList";
   static const String applyFilter = "applyFilter";
   static const String priceLowToHigh = "priceLowToHigh";
   static const String priceHighToLow = "priceHighToLow";
@@ -29,6 +30,11 @@ class AppStrings {
       "somethingWrongWithYourConnection";
   static const String area = "area";
   static const String office = "office";
+  static const String addProduct = "addProduct";
+  static const String image = "image";
+  static const String name = "name";
+  static const String procedures = "procedures";
+      
 
   static const String thisAccountNotAccessInThisApp =
       "thisAccountNotAccessInThisApp";
