@@ -106,7 +106,7 @@ class _MyAppState extends State<MyApp> {
   // Extracted logic for determining the initial route
   String _getInitialRoute() {
     if (AppInitialRoute.isLoggedInUser) {
-      return Routes.home;
+      return Routes.sideMenu;
     } else {
       return Routes.loginRoute;
     }

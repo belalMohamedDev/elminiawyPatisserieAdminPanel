@@ -1,4 +1,5 @@
 import 'package:elminiawy/core/common/shared/shared_imports.dart';
+import 'package:elminiawy/feature/sideMenu/logic/sideMenuCuibt/side_menu_cubit.dart';
 
 class ProductListAndAddProductButton extends StatelessWidget {
   const ProductListAndAddProductButton({
@@ -9,7 +10,7 @@ class ProductListAndAddProductButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final responsive = ResponsiveUtils(context);
     return Padding(
-      padding: responsive.setPadding(top: 8, left: 2, right: 2),
+      padding: responsive.setPadding(top: 8, left: 1, right: 2),
       child: Row(
         children: [
           Text(
@@ -22,7 +23,9 @@ class ProductListAndAddProductButton extends StatelessWidget {
           CustomButton(
               width: 10,
               radius: 0.9,
-              onPressed: () {},
+              onPressed: () {
+                context.read<SideMenuCubit>().onItemTap("AddProduct");
+              },
               widget: Row(
                 children: [
                   Icon(

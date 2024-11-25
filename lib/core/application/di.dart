@@ -1,3 +1,5 @@
+import 'package:elminiawy/feature/sideMenu/logic/sideMenuCuibt/side_menu_cubit.dart';
+
 import '../../../../core/common/shared/shared_imports.dart';
 
 final instance = GetIt.instance;
@@ -8,7 +10,6 @@ Future<void> initAppModule() async {
     _inithome(),
     _initPlaces(),
     _initLogin(),
-    
     _initProduct(),
     _initWishList(),
     _initLogOut(),
@@ -21,7 +22,8 @@ Future<void> initAppModule() async {
     _initPayment(),
     _initNotification(),
     _initSearch(),
-    _initSignInWithGoogleAndApple()
+    _initSignInWithGoogleAndApple(),
+    _initSideMenu()
   ]);
 }
 
@@ -42,6 +44,11 @@ Future<void> _initAppModule() async {
     ..registerLazySingleton<AppServiceClient>(() => AppServiceClient(dio))
     ..registerSingleton<GlobalKey<NavigatorState>>(navigatorKey)
     ..registerFactory<AppLogicCubit>(() => AppLogicCubit());
+}
+
+Future<void> _initSideMenu() async {
+  // //home repository
+  instance.registerLazySingleton<SideMenuCubit>(() => SideMenuCubit());
 }
 
 Future<void> _inithome() async {

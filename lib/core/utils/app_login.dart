@@ -50,7 +50,7 @@ class AppLogin {
     }
 
     if (context.mounted) {
-      context.pushReplacementNamed(Routes.home);
+      context.pushReplacementNamed(Routes.sideMenu);
     }
   }
 }

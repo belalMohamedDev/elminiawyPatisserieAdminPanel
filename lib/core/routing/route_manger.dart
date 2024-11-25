@@ -1,3 +1,5 @@
+import 'package:elminiawy/feature/sideMenu/logic/sideMenuCuibt/side_menu_cubit.dart';
+
 import '../../../../core/common/shared/shared_imports.dart';
 
 class RouteGenerator {
@@ -124,11 +126,18 @@ class RouteGenerator {
                   child: const MyOrdersScreen(),
                 ));
 
-      case Routes.home:
+      case Routes.sideMenu:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider.value(
-            value: instance<ProductCubit>(),
-            child: const HomeScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider.value(
+                value: instance<ProductCubit>(),
+              ),
+              BlocProvider.value(
+                value: instance<SideMenuCubit>(),
+              ),
+            ],
+            child: const SideMenuScreen(),
           ),
         );
 

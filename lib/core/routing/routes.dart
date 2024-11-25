@@ -6,6 +6,7 @@ class Routes {
   static const String bottomNavBarRoute = "bottomNavBar";
   static const String aboutApp = "aboutApp";
   static const String home = "home";
+  static const String sideMenu = "SideMenuScreen";
   static const String newPassword = "newPassword";
   static const String newProduct = "newProduct";
   static const String search = "search";

@@ -60,9 +60,9 @@ export '../../../../feature/wishList/presentation/refactor/wishlist_body.dart';
 export '../../../../app.dart';
 
 export '../../../../core/common/sharedWidget/search_row.dart';
-export '../../../../feature/home/presentation/widget/banner_carousel_slider.dart';
-export '../../../../feature/home/presentation/widget/category_list_view_builder.dart';
-export '../../../../feature/home/presentation/widget/new_product_gride_view.dart';
+export '../../../feature/sideMenu/presentation/widget/banner_carousel_slider.dart';
+export '../../../feature/sideMenu/presentation/widget/category_list_view_builder.dart';
+export '../../../feature/sideMenu/presentation/widget/new_product_gride_view.dart';
 
 export 'package:geolocator/geolocator.dart';
 export 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -87,7 +87,7 @@ export '../../../../core/application/di.dart';
 
 export '../../../feature/productBasedOnCategory/cubit/product_based_on_category_cubit.dart';
 export '../../../feature/productBasedOnCategory/presentation/screen/get_product_based_on_category.dart';
-export '../../../feature/home/logic/categoryCubit/category_cubit.dart';
+export '../../../feature/sideMenu/logic/categoryCubit/category_cubit.dart';
 
 export '../../../../core/common/statsScreen/loading_shimmer.dart';
 
@@ -132,8 +132,8 @@ export 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 export '../../../../feature/address/logic/userAddressCubit/user_address_cubit.dart';
 export '../../../../feature/category/presentation/screen/category_view.dart';
 export '../../../../feature/cart/presentation/screen/cart_view.dart';
-export '../../../../feature/home/logic/bannerCubit/banner_cubit.dart';
-export '../../../../feature/home/presentation/screen/home_screen.dart';
+export '../../../feature/sideMenu/logic/bannerCubit/banner_cubit.dart';
+export '../../../feature/sideMenu/presentation/screen/side_menu_screen.dart';
 export '../../../../feature/profile/presentation/screen/profile_view.dart';
 
 export '../../../../feature/accountInfo/presentation/screen/account_info_screen.dart';
@@ -232,7 +232,7 @@ export 'package:get_it/get_it.dart';
 export 'package:internet_connection_checker/internet_connection_checker.dart';
 
 export '../../../../feature/accountInfo/data/repository/update_account_information.dart';
-export '../../../../feature/home/data/repository/repositry.dart';
+export '../../../feature/sideMenu/data/repository/repositry.dart';
 export '../../../feature/product/model/repository/repositry.dart';
 export '../../../../feature/address/data/repository/address_repo.dart';
 export '../../../../feature/wishList/data/repository/repository.dart';
@@ -278,7 +278,7 @@ export '../../../../core/network/apiResult/api_reuslt.dart';
 export '../../../../core/network/error_handler/api_error_handler.dart';
 
 export '../../../../feature/changePassword/data/model/request/change_my_password_request.dart';
-export '../../../../feature/home/data/model/response/category_response.dart'
+export '../../../feature/sideMenu/data/model/response/category_response.dart'
     hide PaginationRuslt;
 export '../../../../feature/address/data/model/response/create_address_response.dart'
     hide Location;
@@ -291,7 +291,7 @@ export '../../../feature/address/data/model/response/check_address_available.dar
 export '../../../feature/cart/data/model/bodyRequest/add_item.dart';
 export '../../../feature/changeEmailAddress/data/model/request/change_email_request.dart';
 
-export '../../../feature/home/data/model/response/banner_response.dart';
+export '../../../feature/sideMenu/data/model/response/banner_response.dart';
 export '../../../feature/profile/data/model/response/log_out_response.dart';
 
 export '../../../core/network/api_constant/api_constant.dart';
