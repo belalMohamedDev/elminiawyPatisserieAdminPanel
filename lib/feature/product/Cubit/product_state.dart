@@ -6,8 +6,8 @@ class ProductState with _$ProductState {
 
   //get product State
   const factory ProductState.getProductLoading() = GetProductLoading;
-  const factory ProductState.getProductError(
-      ApiErrorModel apiErrorModel) = GetProductError;
+  const factory ProductState.getProductError(ApiErrorModel apiErrorModel) =
+      GetProductError;
 
   const factory ProductState.getProductSuccess(ProductResponse data) =
       GetProductSuccess;
@@ -20,4 +20,9 @@ class ProductState with _$ProductState {
 
   const factory ProductState.selectedOptionState(int selectedOption) =
       SelectedOptionState;
+
+  const factory ProductState.imagePath(File? image) = ImagePath;
+
+    const factory ProductState.imageBytes(Uint8List imageBytes) = _ImageBytes;
+
 }

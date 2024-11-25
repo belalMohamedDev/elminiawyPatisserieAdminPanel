@@ -35,6 +35,7 @@ Future<void> _initAppModule() async {
   Bloc.observer = AppBlocObserver();
 
   final navigatorKey = GlobalKey<NavigatorState>();
+ 
 
   // Dio & ApiService
 
@@ -88,6 +89,7 @@ Future<void> _initProduct() async {
       () => ProductRepository(instance()));
   instance.registerLazySingleton<ProductCubit>(() => ProductCubit(
         instance(),
+        
       ));
 }
 

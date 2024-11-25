@@ -1,13 +1,14 @@
 class AppStrings {
   static const String noRouteFound = "noRouteFound";
 
- // static const String appName = "appName";
+  // static const String appName = "appName";
   static const String welcomeToElminiawyPatisserie =
       "welcomeToElminiawyPatisserie";
   static const String discoverOurWonderfulSelection =
       "discoverOurWonderfulSelection";
   static const String letsGetStarted = "letsGetStarted";
-
+  static const String photoGallery = 'photoGallery';
+  static const String photoCamera = 'photoCamera';
   static const String alreadyHaveAnAccount = "alreadyHaveAnAccount";
   static const String signInWithGoogle = "signInWithGoogle";
   static const String signInWithApple = "signInWithApple";
@@ -35,7 +36,19 @@ class AppStrings {
   static const String name = "name";
   static const String procedures = "procedures";
   static const String subCategory = "subCategory";
-      
+  static const String uploadProfilePicture = "uploadProfilePicture";
+
+  static const String titleInEnglish = "titleInEnglish";
+  static const String descriptionInArabic = "descriptionInArabic";
+  static const String pleaseEnterProductPrice = "pleaseEnterProductPrice";
+  static const String descriptionInEnglish = "descriptionInEnglish";
+  static const String pleaseEnterDescriptionInEnglish =
+      "pleaseEnterDescriptionInEnglish";
+  static const String pleaseEnterTitleInEnglish = "pleaseEnterTitleInEnglish";
+  static const String titleInArabic = "titleInArabic";
+  static const String pleaseEnterTitleInArabic = "pleaseEnterTitleInArabic";
+  static const String pleaseEnterDescriptionInArabic =
+      "pleaseEnterDescriptionInArabic";
 
   static const String thisAccountNotAccessInThisApp =
       "thisAccountNotAccessInThisApp";
@@ -58,7 +71,7 @@ class AppStrings {
   static const String enterYourPassword = "enterYourPassword";
   static const String enterNewPassword = "enterNewPassword";
   static const String enterConfirmNewPassword = "enterConfirmNewPassword";
-   static const String pleaseEnterValidEmail = "pleaseEnterValidEmail";
+  static const String pleaseEnterValidEmail = "pleaseEnterValidEmail";
   static const String pleaseEnterValidPassword = "pleaseEnterValidPassword";
   static const String loading = "loading";
   static const String orderNum = "orderNum";
@@ -147,7 +160,7 @@ class AppStrings {
   static const String subTotal = "subTotal";
   static const String priceAfterDiscount = "priceAfterDiscount";
   static const String tax = "tax";
- // static const String shipping = "shipping";
+  // static const String shipping = "shipping";
   static const String totalAmount = "totalAmount";
   static const String apply = "apply";
   static const String enterVoucherCode = "enterVoucherCode";
@@ -242,7 +255,7 @@ class AppStrings {
   static const String addNotes = "addNotes";
   static const String typeAnyNoteRelatedToThisOrder =
       "typeAnyNoteRelatedToThisOrder";
- // static const String payment = "payment";
+  // static const String payment = "payment";
   static const String edit = "edit";
   static const String newPasswordAndConfirmPasswordNotMatching =
       "newPasswordAndConfirmPasswordNotMatching";
@@ -278,7 +291,6 @@ class AppStrings {
   static const String myProfile = "myProfile";
   static const String myAddress = "myAddress";
   static const String addNewAddress = "addNewAddress";
-     
 
   static const String myWishList = "myWishList";
   static const String settings = "settings";
@@ -288,12 +300,12 @@ class AppStrings {
   static const String backToHome = "backToHome";
   static const String trackOrder = "trackOrder";
   static const String myOrders = "myOrders";
-  static const String theOrderAcceptedByRestaurant = "theOrderAcceptedByRestaurant";
+  static const String theOrderAcceptedByRestaurant =
+      "theOrderAcceptedByRestaurant";
   static const String currentOrders = "currentOrders";
   static const String previousOrders = "previousOrders";
   static const String accountInformation = "accountInformation";
   static const String changePassword = "changePassword";
-
 
   static const String one = "1";
   static const String two = "2";

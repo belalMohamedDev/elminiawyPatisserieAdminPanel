@@ -1,3 +1,7 @@
+import 'package:elminiawy/feature/product/presentation/refactor/productScreenRefactor/product_data_table.dart';
+import 'package:elminiawy/feature/product/presentation/refactor/productScreenRefactor/product_list_and_add_product_button.dart';
+import 'package:elminiawy/feature/product/presentation/refactor/productScreenRefactor/search_product.dart';
+
 import '../../../../../core/common/shared/shared_imports.dart'; //
 
 class ProductsPage extends StatefulWidget {

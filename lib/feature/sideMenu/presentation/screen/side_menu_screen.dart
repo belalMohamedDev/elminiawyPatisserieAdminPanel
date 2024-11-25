@@ -2,7 +2,7 @@ import 'package:elminiawy/feature/sideMenu/logic/sideMenuCuibt/side_menu_cubit.d
 import 'package:elminiawy/feature/sideMenu/presentation/refactor/home_body_screen.dart';
 import 'package:elminiawy/feature/sideMenu/presentation/refactor/side_menu.dart';
 
-import '../../../../../core/common/shared/shared_imports.dart'; // Shared imports for project utilities
+import '../../../../../core/common/shared/shared_imports.dart'; 
 
 class SideMenuScreen extends StatefulWidget {
   const SideMenuScreen({super.key});

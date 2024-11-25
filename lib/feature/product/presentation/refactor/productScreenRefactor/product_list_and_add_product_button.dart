@@ -24,14 +24,18 @@ class ProductListAndAddProductButton extends StatelessWidget {
               width: 10,
               radius: 0.9,
               onPressed: () {
-                context.read<SideMenuCubit>().onItemTap("AddProduct");
+                instance<SideMenuCubit>().onItemTap("AddProduct");
               },
               widget: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Icon(
                     Icons.add,
                     color: ColorManger.white,
+                    size: responsive.setIconSize(1.8),
                   ),
+                  responsive.setSizeBox(width: 0.5),
                   Text(
                     context.translate(AppStrings.addProduct),
                     style: Theme.of(context).textTheme.headlineSmall!.copyWith(

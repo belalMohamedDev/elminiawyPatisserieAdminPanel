@@ -27,8 +27,22 @@
      "procedures" :"الإجراءات",
      "subCategory" :"الفئة الفرعية",
 
-  "continueWithoutSigningUp":"استمرار بدون تسجيل",
 
+"titleInEnglish": "العنوان باللغة الإنجليزية",
+"pleaseEnterProductPrice": "الرجاء إدخال سعر المنتج",
+"descriptionInEnglish": "الوصف باللغة الإنجليزية",
+"pleaseEnterDescriptionInEnglish": "الرجاء إدخال الوصف باللغة الإنجليزية",
+"pleaseEnterTitleInEnglish": "الرجاء إدخال العنوان باللغة الإنجليزية",
+"titleInArabic": "العنوان باللغة العربية",
+"pleaseEnterTitleInArabic": "الرجاء إدخال العنوان باللغة العربية",
+"pleaseEnterDescriptionInArabic": "الرجاء إدخال الوصف باللغة العربية",
+"descriptionInArabic" :"الوصف باللغة العربية",
+
+
+ "photoGallery": "صورة من المعرض",
+  "photoCamera": "صورة من الكاميرا",
+  "continueWithoutSigningUp":"استمرار بدون تسجيل",
+  "uploadProfilePicture": "تحميل صورة الملف الشخصي",
   "somethingWrongWithYourConnection": "هناك خطأ ما في اتصالك، يرجى المحاولة مرة أخرى بعد لحظة.",
   "area": "المنطقة",
   "thisAccountNotAccessInThisApp": "هذا الحساب لا يمكن الوصول إليه في هذا التطبيق",

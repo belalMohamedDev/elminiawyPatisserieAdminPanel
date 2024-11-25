@@ -26,6 +26,8 @@ mixin _$ProductState {
         addItemToList,
     required TResult Function(RangeValues selectedRange) selectedRangeState,
     required TResult Function(int selectedOption) selectedOptionState,
+    required TResult Function(File? image) imagePath,
+    required TResult Function(Uint8List imageBytes) imageBytes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,6 +39,8 @@ mixin _$ProductState {
     TResult? Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult? Function(RangeValues selectedRange)? selectedRangeState,
     TResult? Function(int selectedOption)? selectedOptionState,
+    TResult? Function(File? image)? imagePath,
+    TResult? Function(Uint8List imageBytes)? imageBytes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +52,8 @@ mixin _$ProductState {
     TResult Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult Function(RangeValues selectedRange)? selectedRangeState,
     TResult Function(int selectedOption)? selectedOptionState,
+    TResult Function(File? image)? imagePath,
+    TResult Function(Uint8List imageBytes)? imageBytes,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +66,8 @@ mixin _$ProductState {
     required TResult Function(AddItemToList value) addItemToList,
     required TResult Function(SelectedRangeState value) selectedRangeState,
     required TResult Function(SelectedOptionState value) selectedOptionState,
+    required TResult Function(ImagePath value) imagePath,
+    required TResult Function(_ImageBytes value) imageBytes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +79,8 @@ mixin _$ProductState {
     TResult? Function(AddItemToList value)? addItemToList,
     TResult? Function(SelectedRangeState value)? selectedRangeState,
     TResult? Function(SelectedOptionState value)? selectedOptionState,
+    TResult? Function(ImagePath value)? imagePath,
+    TResult? Function(_ImageBytes value)? imageBytes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +92,8 @@ mixin _$ProductState {
     TResult Function(AddItemToList value)? addItemToList,
     TResult Function(SelectedRangeState value)? selectedRangeState,
     TResult Function(SelectedOptionState value)? selectedOptionState,
+    TResult Function(ImagePath value)? imagePath,
+    TResult Function(_ImageBytes value)? imageBytes,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -151,6 +163,8 @@ class _$InitialImpl implements _Initial {
         addItemToList,
     required TResult Function(RangeValues selectedRange) selectedRangeState,
     required TResult Function(int selectedOption) selectedOptionState,
+    required TResult Function(File? image) imagePath,
+    required TResult Function(Uint8List imageBytes) imageBytes,
   }) {
     return initial();
   }
@@ -165,6 +179,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult? Function(RangeValues selectedRange)? selectedRangeState,
     TResult? Function(int selectedOption)? selectedOptionState,
+    TResult? Function(File? image)? imagePath,
+    TResult? Function(Uint8List imageBytes)? imageBytes,
   }) {
     return initial?.call();
   }
@@ -179,6 +195,8 @@ class _$InitialImpl implements _Initial {
     TResult Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult Function(RangeValues selectedRange)? selectedRangeState,
     TResult Function(int selectedOption)? selectedOptionState,
+    TResult Function(File? image)? imagePath,
+    TResult Function(Uint8List imageBytes)? imageBytes,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -197,6 +215,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(AddItemToList value) addItemToList,
     required TResult Function(SelectedRangeState value) selectedRangeState,
     required TResult Function(SelectedOptionState value) selectedOptionState,
+    required TResult Function(ImagePath value) imagePath,
+    required TResult Function(_ImageBytes value) imageBytes,
   }) {
     return initial(this);
   }
@@ -211,6 +231,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function(AddItemToList value)? addItemToList,
     TResult? Function(SelectedRangeState value)? selectedRangeState,
     TResult? Function(SelectedOptionState value)? selectedOptionState,
+    TResult? Function(ImagePath value)? imagePath,
+    TResult? Function(_ImageBytes value)? imageBytes,
   }) {
     return initial?.call(this);
   }
@@ -225,6 +247,8 @@ class _$InitialImpl implements _Initial {
     TResult Function(AddItemToList value)? addItemToList,
     TResult Function(SelectedRangeState value)? selectedRangeState,
     TResult Function(SelectedOptionState value)? selectedOptionState,
+    TResult Function(ImagePath value)? imagePath,
+    TResult Function(_ImageBytes value)? imageBytes,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -284,6 +308,8 @@ class _$GetProductLoadingImpl implements GetProductLoading {
         addItemToList,
     required TResult Function(RangeValues selectedRange) selectedRangeState,
     required TResult Function(int selectedOption) selectedOptionState,
+    required TResult Function(File? image) imagePath,
+    required TResult Function(Uint8List imageBytes) imageBytes,
   }) {
     return getProductLoading();
   }
@@ -298,6 +324,8 @@ class _$GetProductLoadingImpl implements GetProductLoading {
     TResult? Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult? Function(RangeValues selectedRange)? selectedRangeState,
     TResult? Function(int selectedOption)? selectedOptionState,
+    TResult? Function(File? image)? imagePath,
+    TResult? Function(Uint8List imageBytes)? imageBytes,
   }) {
     return getProductLoading?.call();
   }
@@ -312,6 +340,8 @@ class _$GetProductLoadingImpl implements GetProductLoading {
     TResult Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult Function(RangeValues selectedRange)? selectedRangeState,
     TResult Function(int selectedOption)? selectedOptionState,
+    TResult Function(File? image)? imagePath,
+    TResult Function(Uint8List imageBytes)? imageBytes,
     required TResult orElse(),
   }) {
     if (getProductLoading != null) {
@@ -330,6 +360,8 @@ class _$GetProductLoadingImpl implements GetProductLoading {
     required TResult Function(AddItemToList value) addItemToList,
     required TResult Function(SelectedRangeState value) selectedRangeState,
     required TResult Function(SelectedOptionState value) selectedOptionState,
+    required TResult Function(ImagePath value) imagePath,
+    required TResult Function(_ImageBytes value) imageBytes,
   }) {
     return getProductLoading(this);
   }
@@ -344,6 +376,8 @@ class _$GetProductLoadingImpl implements GetProductLoading {
     TResult? Function(AddItemToList value)? addItemToList,
     TResult? Function(SelectedRangeState value)? selectedRangeState,
     TResult? Function(SelectedOptionState value)? selectedOptionState,
+    TResult? Function(ImagePath value)? imagePath,
+    TResult? Function(_ImageBytes value)? imageBytes,
   }) {
     return getProductLoading?.call(this);
   }
@@ -358,6 +392,8 @@ class _$GetProductLoadingImpl implements GetProductLoading {
     TResult Function(AddItemToList value)? addItemToList,
     TResult Function(SelectedRangeState value)? selectedRangeState,
     TResult Function(SelectedOptionState value)? selectedOptionState,
+    TResult Function(ImagePath value)? imagePath,
+    TResult Function(_ImageBytes value)? imageBytes,
     required TResult orElse(),
   }) {
     if (getProductLoading != null) {
@@ -445,6 +481,8 @@ class _$GetProductErrorImpl implements GetProductError {
         addItemToList,
     required TResult Function(RangeValues selectedRange) selectedRangeState,
     required TResult Function(int selectedOption) selectedOptionState,
+    required TResult Function(File? image) imagePath,
+    required TResult Function(Uint8List imageBytes) imageBytes,
   }) {
     return getProductError(apiErrorModel);
   }
@@ -459,6 +497,8 @@ class _$GetProductErrorImpl implements GetProductError {
     TResult? Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult? Function(RangeValues selectedRange)? selectedRangeState,
     TResult? Function(int selectedOption)? selectedOptionState,
+    TResult? Function(File? image)? imagePath,
+    TResult? Function(Uint8List imageBytes)? imageBytes,
   }) {
     return getProductError?.call(apiErrorModel);
   }
@@ -473,6 +513,8 @@ class _$GetProductErrorImpl implements GetProductError {
     TResult Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult Function(RangeValues selectedRange)? selectedRangeState,
     TResult Function(int selectedOption)? selectedOptionState,
+    TResult Function(File? image)? imagePath,
+    TResult Function(Uint8List imageBytes)? imageBytes,
     required TResult orElse(),
   }) {
     if (getProductError != null) {
@@ -491,6 +533,8 @@ class _$GetProductErrorImpl implements GetProductError {
     required TResult Function(AddItemToList value) addItemToList,
     required TResult Function(SelectedRangeState value) selectedRangeState,
     required TResult Function(SelectedOptionState value) selectedOptionState,
+    required TResult Function(ImagePath value) imagePath,
+    required TResult Function(_ImageBytes value) imageBytes,
   }) {
     return getProductError(this);
   }
@@ -505,6 +549,8 @@ class _$GetProductErrorImpl implements GetProductError {
     TResult? Function(AddItemToList value)? addItemToList,
     TResult? Function(SelectedRangeState value)? selectedRangeState,
     TResult? Function(SelectedOptionState value)? selectedOptionState,
+    TResult? Function(ImagePath value)? imagePath,
+    TResult? Function(_ImageBytes value)? imageBytes,
   }) {
     return getProductError?.call(this);
   }
@@ -519,6 +565,8 @@ class _$GetProductErrorImpl implements GetProductError {
     TResult Function(AddItemToList value)? addItemToList,
     TResult Function(SelectedRangeState value)? selectedRangeState,
     TResult Function(SelectedOptionState value)? selectedOptionState,
+    TResult Function(ImagePath value)? imagePath,
+    TResult Function(_ImageBytes value)? imageBytes,
     required TResult orElse(),
   }) {
     if (getProductError != null) {
@@ -611,6 +659,8 @@ class _$GetProductSuccessImpl implements GetProductSuccess {
         addItemToList,
     required TResult Function(RangeValues selectedRange) selectedRangeState,
     required TResult Function(int selectedOption) selectedOptionState,
+    required TResult Function(File? image) imagePath,
+    required TResult Function(Uint8List imageBytes) imageBytes,
   }) {
     return getProductSuccess(data);
   }
@@ -625,6 +675,8 @@ class _$GetProductSuccessImpl implements GetProductSuccess {
     TResult? Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult? Function(RangeValues selectedRange)? selectedRangeState,
     TResult? Function(int selectedOption)? selectedOptionState,
+    TResult? Function(File? image)? imagePath,
+    TResult? Function(Uint8List imageBytes)? imageBytes,
   }) {
     return getProductSuccess?.call(data);
   }
@@ -639,6 +691,8 @@ class _$GetProductSuccessImpl implements GetProductSuccess {
     TResult Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult Function(RangeValues selectedRange)? selectedRangeState,
     TResult Function(int selectedOption)? selectedOptionState,
+    TResult Function(File? image)? imagePath,
+    TResult Function(Uint8List imageBytes)? imageBytes,
     required TResult orElse(),
   }) {
     if (getProductSuccess != null) {
@@ -657,6 +711,8 @@ class _$GetProductSuccessImpl implements GetProductSuccess {
     required TResult Function(AddItemToList value) addItemToList,
     required TResult Function(SelectedRangeState value) selectedRangeState,
     required TResult Function(SelectedOptionState value) selectedOptionState,
+    required TResult Function(ImagePath value) imagePath,
+    required TResult Function(_ImageBytes value) imageBytes,
   }) {
     return getProductSuccess(this);
   }
@@ -671,6 +727,8 @@ class _$GetProductSuccessImpl implements GetProductSuccess {
     TResult? Function(AddItemToList value)? addItemToList,
     TResult? Function(SelectedRangeState value)? selectedRangeState,
     TResult? Function(SelectedOptionState value)? selectedOptionState,
+    TResult? Function(ImagePath value)? imagePath,
+    TResult? Function(_ImageBytes value)? imageBytes,
   }) {
     return getProductSuccess?.call(this);
   }
@@ -685,6 +743,8 @@ class _$GetProductSuccessImpl implements GetProductSuccess {
     TResult Function(AddItemToList value)? addItemToList,
     TResult Function(SelectedRangeState value)? selectedRangeState,
     TResult Function(SelectedOptionState value)? selectedOptionState,
+    TResult Function(ImagePath value)? imagePath,
+    TResult Function(_ImageBytes value)? imageBytes,
     required TResult orElse(),
   }) {
     if (getProductSuccess != null) {
@@ -784,6 +844,8 @@ class _$AddItemToListImpl implements AddItemToList {
         addItemToList,
     required TResult Function(RangeValues selectedRange) selectedRangeState,
     required TResult Function(int selectedOption) selectedOptionState,
+    required TResult Function(File? image) imagePath,
+    required TResult Function(Uint8List imageBytes) imageBytes,
   }) {
     return addItemToList(getFoundData);
   }
@@ -798,6 +860,8 @@ class _$AddItemToListImpl implements AddItemToList {
     TResult? Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult? Function(RangeValues selectedRange)? selectedRangeState,
     TResult? Function(int selectedOption)? selectedOptionState,
+    TResult? Function(File? image)? imagePath,
+    TResult? Function(Uint8List imageBytes)? imageBytes,
   }) {
     return addItemToList?.call(getFoundData);
   }
@@ -812,6 +876,8 @@ class _$AddItemToListImpl implements AddItemToList {
     TResult Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult Function(RangeValues selectedRange)? selectedRangeState,
     TResult Function(int selectedOption)? selectedOptionState,
+    TResult Function(File? image)? imagePath,
+    TResult Function(Uint8List imageBytes)? imageBytes,
     required TResult orElse(),
   }) {
     if (addItemToList != null) {
@@ -830,6 +896,8 @@ class _$AddItemToListImpl implements AddItemToList {
     required TResult Function(AddItemToList value) addItemToList,
     required TResult Function(SelectedRangeState value) selectedRangeState,
     required TResult Function(SelectedOptionState value) selectedOptionState,
+    required TResult Function(ImagePath value) imagePath,
+    required TResult Function(_ImageBytes value) imageBytes,
   }) {
     return addItemToList(this);
   }
@@ -844,6 +912,8 @@ class _$AddItemToListImpl implements AddItemToList {
     TResult? Function(AddItemToList value)? addItemToList,
     TResult? Function(SelectedRangeState value)? selectedRangeState,
     TResult? Function(SelectedOptionState value)? selectedOptionState,
+    TResult? Function(ImagePath value)? imagePath,
+    TResult? Function(_ImageBytes value)? imageBytes,
   }) {
     return addItemToList?.call(this);
   }
@@ -858,6 +928,8 @@ class _$AddItemToListImpl implements AddItemToList {
     TResult Function(AddItemToList value)? addItemToList,
     TResult Function(SelectedRangeState value)? selectedRangeState,
     TResult Function(SelectedOptionState value)? selectedOptionState,
+    TResult Function(ImagePath value)? imagePath,
+    TResult Function(_ImageBytes value)? imageBytes,
     required TResult orElse(),
   }) {
     if (addItemToList != null) {
@@ -951,6 +1023,8 @@ class _$SelectedRangeStateImpl implements SelectedRangeState {
         addItemToList,
     required TResult Function(RangeValues selectedRange) selectedRangeState,
     required TResult Function(int selectedOption) selectedOptionState,
+    required TResult Function(File? image) imagePath,
+    required TResult Function(Uint8List imageBytes) imageBytes,
   }) {
     return selectedRangeState(selectedRange);
   }
@@ -965,6 +1039,8 @@ class _$SelectedRangeStateImpl implements SelectedRangeState {
     TResult? Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult? Function(RangeValues selectedRange)? selectedRangeState,
     TResult? Function(int selectedOption)? selectedOptionState,
+    TResult? Function(File? image)? imagePath,
+    TResult? Function(Uint8List imageBytes)? imageBytes,
   }) {
     return selectedRangeState?.call(selectedRange);
   }
@@ -979,6 +1055,8 @@ class _$SelectedRangeStateImpl implements SelectedRangeState {
     TResult Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult Function(RangeValues selectedRange)? selectedRangeState,
     TResult Function(int selectedOption)? selectedOptionState,
+    TResult Function(File? image)? imagePath,
+    TResult Function(Uint8List imageBytes)? imageBytes,
     required TResult orElse(),
   }) {
     if (selectedRangeState != null) {
@@ -997,6 +1075,8 @@ class _$SelectedRangeStateImpl implements SelectedRangeState {
     required TResult Function(AddItemToList value) addItemToList,
     required TResult Function(SelectedRangeState value) selectedRangeState,
     required TResult Function(SelectedOptionState value) selectedOptionState,
+    required TResult Function(ImagePath value) imagePath,
+    required TResult Function(_ImageBytes value) imageBytes,
   }) {
     return selectedRangeState(this);
   }
@@ -1011,6 +1091,8 @@ class _$SelectedRangeStateImpl implements SelectedRangeState {
     TResult? Function(AddItemToList value)? addItemToList,
     TResult? Function(SelectedRangeState value)? selectedRangeState,
     TResult? Function(SelectedOptionState value)? selectedOptionState,
+    TResult? Function(ImagePath value)? imagePath,
+    TResult? Function(_ImageBytes value)? imageBytes,
   }) {
     return selectedRangeState?.call(this);
   }
@@ -1025,6 +1107,8 @@ class _$SelectedRangeStateImpl implements SelectedRangeState {
     TResult Function(AddItemToList value)? addItemToList,
     TResult Function(SelectedRangeState value)? selectedRangeState,
     TResult Function(SelectedOptionState value)? selectedOptionState,
+    TResult Function(ImagePath value)? imagePath,
+    TResult Function(_ImageBytes value)? imageBytes,
     required TResult orElse(),
   }) {
     if (selectedRangeState != null) {
@@ -1118,6 +1202,8 @@ class _$SelectedOptionStateImpl implements SelectedOptionState {
         addItemToList,
     required TResult Function(RangeValues selectedRange) selectedRangeState,
     required TResult Function(int selectedOption) selectedOptionState,
+    required TResult Function(File? image) imagePath,
+    required TResult Function(Uint8List imageBytes) imageBytes,
   }) {
     return selectedOptionState(selectedOption);
   }
@@ -1132,6 +1218,8 @@ class _$SelectedOptionStateImpl implements SelectedOptionState {
     TResult? Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult? Function(RangeValues selectedRange)? selectedRangeState,
     TResult? Function(int selectedOption)? selectedOptionState,
+    TResult? Function(File? image)? imagePath,
+    TResult? Function(Uint8List imageBytes)? imageBytes,
   }) {
     return selectedOptionState?.call(selectedOption);
   }
@@ -1146,6 +1234,8 @@ class _$SelectedOptionStateImpl implements SelectedOptionState {
     TResult Function(List<DataProductResponse> getFoundData)? addItemToList,
     TResult Function(RangeValues selectedRange)? selectedRangeState,
     TResult Function(int selectedOption)? selectedOptionState,
+    TResult Function(File? image)? imagePath,
+    TResult Function(Uint8List imageBytes)? imageBytes,
     required TResult orElse(),
   }) {
     if (selectedOptionState != null) {
@@ -1164,6 +1254,8 @@ class _$SelectedOptionStateImpl implements SelectedOptionState {
     required TResult Function(AddItemToList value) addItemToList,
     required TResult Function(SelectedRangeState value) selectedRangeState,
     required TResult Function(SelectedOptionState value) selectedOptionState,
+    required TResult Function(ImagePath value) imagePath,
+    required TResult Function(_ImageBytes value) imageBytes,
   }) {
     return selectedOptionState(this);
   }
@@ -1178,6 +1270,8 @@ class _$SelectedOptionStateImpl implements SelectedOptionState {
     TResult? Function(AddItemToList value)? addItemToList,
     TResult? Function(SelectedRangeState value)? selectedRangeState,
     TResult? Function(SelectedOptionState value)? selectedOptionState,
+    TResult? Function(ImagePath value)? imagePath,
+    TResult? Function(_ImageBytes value)? imageBytes,
   }) {
     return selectedOptionState?.call(this);
   }
@@ -1192,6 +1286,8 @@ class _$SelectedOptionStateImpl implements SelectedOptionState {
     TResult Function(AddItemToList value)? addItemToList,
     TResult Function(SelectedRangeState value)? selectedRangeState,
     TResult Function(SelectedOptionState value)? selectedOptionState,
+    TResult Function(ImagePath value)? imagePath,
+    TResult Function(_ImageBytes value)? imageBytes,
     required TResult orElse(),
   }) {
     if (selectedOptionState != null) {
@@ -1208,5 +1304,359 @@ abstract class SelectedOptionState implements ProductState {
   int get selectedOption;
   @JsonKey(ignore: true)
   _$$SelectedOptionStateImplCopyWith<_$SelectedOptionStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ImagePathImplCopyWith<$Res> {
+  factory _$$ImagePathImplCopyWith(
+          _$ImagePathImpl value, $Res Function(_$ImagePathImpl) then) =
+      __$$ImagePathImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({File? image});
+}
+
+/// @nodoc
+class __$$ImagePathImplCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res, _$ImagePathImpl>
+    implements _$$ImagePathImplCopyWith<$Res> {
+  __$$ImagePathImplCopyWithImpl(
+      _$ImagePathImpl _value, $Res Function(_$ImagePathImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? image = freezed,
+  }) {
+    return _then(_$ImagePathImpl(
+      freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as File?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ImagePathImpl implements ImagePath {
+  const _$ImagePathImpl(this.image);
+
+  @override
+  final File? image;
+
+  @override
+  String toString() {
+    return 'ProductState.imagePath(image: $image)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ImagePathImpl &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, image);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ImagePathImplCopyWith<_$ImagePathImpl> get copyWith =>
+      __$$ImagePathImplCopyWithImpl<_$ImagePathImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getProductLoading,
+    required TResult Function(ApiErrorModel apiErrorModel) getProductError,
+    required TResult Function(ProductResponse data) getProductSuccess,
+    required TResult Function(List<DataProductResponse> getFoundData)
+        addItemToList,
+    required TResult Function(RangeValues selectedRange) selectedRangeState,
+    required TResult Function(int selectedOption) selectedOptionState,
+    required TResult Function(File? image) imagePath,
+    required TResult Function(Uint8List imageBytes) imageBytes,
+  }) {
+    return imagePath(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getProductLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getProductError,
+    TResult? Function(ProductResponse data)? getProductSuccess,
+    TResult? Function(List<DataProductResponse> getFoundData)? addItemToList,
+    TResult? Function(RangeValues selectedRange)? selectedRangeState,
+    TResult? Function(int selectedOption)? selectedOptionState,
+    TResult? Function(File? image)? imagePath,
+    TResult? Function(Uint8List imageBytes)? imageBytes,
+  }) {
+    return imagePath?.call(image);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getProductLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getProductError,
+    TResult Function(ProductResponse data)? getProductSuccess,
+    TResult Function(List<DataProductResponse> getFoundData)? addItemToList,
+    TResult Function(RangeValues selectedRange)? selectedRangeState,
+    TResult Function(int selectedOption)? selectedOptionState,
+    TResult Function(File? image)? imagePath,
+    TResult Function(Uint8List imageBytes)? imageBytes,
+    required TResult orElse(),
+  }) {
+    if (imagePath != null) {
+      return imagePath(image);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(GetProductLoading value) getProductLoading,
+    required TResult Function(GetProductError value) getProductError,
+    required TResult Function(GetProductSuccess value) getProductSuccess,
+    required TResult Function(AddItemToList value) addItemToList,
+    required TResult Function(SelectedRangeState value) selectedRangeState,
+    required TResult Function(SelectedOptionState value) selectedOptionState,
+    required TResult Function(ImagePath value) imagePath,
+    required TResult Function(_ImageBytes value) imageBytes,
+  }) {
+    return imagePath(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(GetProductLoading value)? getProductLoading,
+    TResult? Function(GetProductError value)? getProductError,
+    TResult? Function(GetProductSuccess value)? getProductSuccess,
+    TResult? Function(AddItemToList value)? addItemToList,
+    TResult? Function(SelectedRangeState value)? selectedRangeState,
+    TResult? Function(SelectedOptionState value)? selectedOptionState,
+    TResult? Function(ImagePath value)? imagePath,
+    TResult? Function(_ImageBytes value)? imageBytes,
+  }) {
+    return imagePath?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(GetProductLoading value)? getProductLoading,
+    TResult Function(GetProductError value)? getProductError,
+    TResult Function(GetProductSuccess value)? getProductSuccess,
+    TResult Function(AddItemToList value)? addItemToList,
+    TResult Function(SelectedRangeState value)? selectedRangeState,
+    TResult Function(SelectedOptionState value)? selectedOptionState,
+    TResult Function(ImagePath value)? imagePath,
+    TResult Function(_ImageBytes value)? imageBytes,
+    required TResult orElse(),
+  }) {
+    if (imagePath != null) {
+      return imagePath(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ImagePath implements ProductState {
+  const factory ImagePath(final File? image) = _$ImagePathImpl;
+
+  File? get image;
+  @JsonKey(ignore: true)
+  _$$ImagePathImplCopyWith<_$ImagePathImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ImageBytesImplCopyWith<$Res> {
+  factory _$$ImageBytesImplCopyWith(
+          _$ImageBytesImpl value, $Res Function(_$ImageBytesImpl) then) =
+      __$$ImageBytesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Uint8List imageBytes});
+}
+
+/// @nodoc
+class __$$ImageBytesImplCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res, _$ImageBytesImpl>
+    implements _$$ImageBytesImplCopyWith<$Res> {
+  __$$ImageBytesImplCopyWithImpl(
+      _$ImageBytesImpl _value, $Res Function(_$ImageBytesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? imageBytes = null,
+  }) {
+    return _then(_$ImageBytesImpl(
+      null == imageBytes
+          ? _value.imageBytes
+          : imageBytes // ignore: cast_nullable_to_non_nullable
+              as Uint8List,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ImageBytesImpl implements _ImageBytes {
+  const _$ImageBytesImpl(this.imageBytes);
+
+  @override
+  final Uint8List imageBytes;
+
+  @override
+  String toString() {
+    return 'ProductState.imageBytes(imageBytes: $imageBytes)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ImageBytesImpl &&
+            const DeepCollectionEquality()
+                .equals(other.imageBytes, imageBytes));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(imageBytes));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ImageBytesImplCopyWith<_$ImageBytesImpl> get copyWith =>
+      __$$ImageBytesImplCopyWithImpl<_$ImageBytesImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getProductLoading,
+    required TResult Function(ApiErrorModel apiErrorModel) getProductError,
+    required TResult Function(ProductResponse data) getProductSuccess,
+    required TResult Function(List<DataProductResponse> getFoundData)
+        addItemToList,
+    required TResult Function(RangeValues selectedRange) selectedRangeState,
+    required TResult Function(int selectedOption) selectedOptionState,
+    required TResult Function(File? image) imagePath,
+    required TResult Function(Uint8List imageBytes) imageBytes,
+  }) {
+    return imageBytes(this.imageBytes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? getProductLoading,
+    TResult? Function(ApiErrorModel apiErrorModel)? getProductError,
+    TResult? Function(ProductResponse data)? getProductSuccess,
+    TResult? Function(List<DataProductResponse> getFoundData)? addItemToList,
+    TResult? Function(RangeValues selectedRange)? selectedRangeState,
+    TResult? Function(int selectedOption)? selectedOptionState,
+    TResult? Function(File? image)? imagePath,
+    TResult? Function(Uint8List imageBytes)? imageBytes,
+  }) {
+    return imageBytes?.call(this.imageBytes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getProductLoading,
+    TResult Function(ApiErrorModel apiErrorModel)? getProductError,
+    TResult Function(ProductResponse data)? getProductSuccess,
+    TResult Function(List<DataProductResponse> getFoundData)? addItemToList,
+    TResult Function(RangeValues selectedRange)? selectedRangeState,
+    TResult Function(int selectedOption)? selectedOptionState,
+    TResult Function(File? image)? imagePath,
+    TResult Function(Uint8List imageBytes)? imageBytes,
+    required TResult orElse(),
+  }) {
+    if (imageBytes != null) {
+      return imageBytes(this.imageBytes);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(GetProductLoading value) getProductLoading,
+    required TResult Function(GetProductError value) getProductError,
+    required TResult Function(GetProductSuccess value) getProductSuccess,
+    required TResult Function(AddItemToList value) addItemToList,
+    required TResult Function(SelectedRangeState value) selectedRangeState,
+    required TResult Function(SelectedOptionState value) selectedOptionState,
+    required TResult Function(ImagePath value) imagePath,
+    required TResult Function(_ImageBytes value) imageBytes,
+  }) {
+    return imageBytes(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(GetProductLoading value)? getProductLoading,
+    TResult? Function(GetProductError value)? getProductError,
+    TResult? Function(GetProductSuccess value)? getProductSuccess,
+    TResult? Function(AddItemToList value)? addItemToList,
+    TResult? Function(SelectedRangeState value)? selectedRangeState,
+    TResult? Function(SelectedOptionState value)? selectedOptionState,
+    TResult? Function(ImagePath value)? imagePath,
+    TResult? Function(_ImageBytes value)? imageBytes,
+  }) {
+    return imageBytes?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(GetProductLoading value)? getProductLoading,
+    TResult Function(GetProductError value)? getProductError,
+    TResult Function(GetProductSuccess value)? getProductSuccess,
+    TResult Function(AddItemToList value)? addItemToList,
+    TResult Function(SelectedRangeState value)? selectedRangeState,
+    TResult Function(SelectedOptionState value)? selectedOptionState,
+    TResult Function(ImagePath value)? imagePath,
+    TResult Function(_ImageBytes value)? imageBytes,
+    required TResult orElse(),
+  }) {
+    if (imageBytes != null) {
+      return imageBytes(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ImageBytes implements ProductState {
+  const factory _ImageBytes(final Uint8List imageBytes) = _$ImageBytesImpl;
+
+  Uint8List get imageBytes;
+  @JsonKey(ignore: true)
+  _$$ImageBytesImplCopyWith<_$ImageBytesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

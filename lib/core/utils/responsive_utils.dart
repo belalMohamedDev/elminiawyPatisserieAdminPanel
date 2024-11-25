@@ -70,10 +70,11 @@ class ResponsiveUtils {
   }
 
   // Create a SizedBox with responsive size
-  SizedBox setSizeBox({double? width, double? height}) {
+  SizedBox setSizeBox({double? width, double? height, Widget? child}) {
     return SizedBox(
       width: width != null ? setWidth(width) : null,
       height: height != null ? setHeight(height) : null,
+      child: child,
     );
   }
 
@@ -117,7 +118,7 @@ class ResponsiveUtils {
   double responsiveTextSize({
     required double desktop,
     required double tablet,
-     double? mobile,
+    double? mobile,
   }) {
     return responsiveValue(desktop: desktop, tablet: tablet, mobile: mobile!);
   }
@@ -161,8 +162,7 @@ class Responsive extends StatelessWidget {
     } else if (mobile != null) {
       return mobile!;
     } else {
-      return const SizedBox
-          .shrink();
+      return const SizedBox.shrink();
     }
   }
 }

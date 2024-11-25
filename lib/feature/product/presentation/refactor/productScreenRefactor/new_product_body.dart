@@ -1,5 +1,5 @@
 
-import '../../../../../core/common/shared/shared_imports.dart'; //
+import '../../../../../../core/common/shared/shared_imports.dart'; //
 
 class NewProductBody extends StatelessWidget {
   const NewProductBody({super.key});

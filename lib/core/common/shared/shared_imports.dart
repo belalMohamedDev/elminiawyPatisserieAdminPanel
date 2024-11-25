@@ -17,9 +17,7 @@ export '../../../../core/utils/app_initial_route.dart';
 export '../../../../core/utils/app_login.dart';
 export '../../../../core/common/sharedWidget/loading_overlay.dart';
 export '../../../../feature/Authentication/presentation/sharedWidgetBetweenScreen/headline_text_auth_screen.dart';
-export '../../../../feature/product/presentation/refactor/product_list_and_add_product_button.dart';
-export '../../../../feature/product/presentation/refactor/search_product.dart';
-export '../../../../feature/product/presentation/refactor/product_data_table.dart';
+
 
 export 'package:firebase_core/firebase_core.dart';
 export 'package:google_sign_in/google_sign_in.dart';
@@ -50,7 +48,7 @@ export '../../../feature/Authentication/presentation/refactors/signIn/password_l
 export '../../../feature/Authentication/presentation/refactors/signIn/sign_in_button.dart';
 export 'package:flutter/gestures.dart';
 export '../../../core/enums/filter_button_enum.dart';
-export '../../../feature/product/presentation/refactor/new_product_body.dart';
+export '../../../feature/product/presentation/refactor/productScreenRefactor/new_product_body.dart';
 export '../../../../feature/productBasedOnCategory/presentation/refactor/get_product_based_on_category_body.dart';
 export '../../../../feature/search/presentation/screen/empty_search.dart';
 export '../../../../feature/search/presentation/widget/filter_bottom_sheet.dart';

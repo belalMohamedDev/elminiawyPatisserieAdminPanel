@@ -1,3 +1,7 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
+
 import '../../../../../core/common/shared/shared_imports.dart'; //
 
 part 'product_state.dart';
@@ -8,7 +12,14 @@ class ProductCubit extends Cubit<ProductState> {
   final ProductRepository _productRepository;
   final TextEditingController search = TextEditingController();
 
+  final TextEditingController productEnTitle = TextEditingController();
+  final TextEditingController productArTitle = TextEditingController();
+  final TextEditingController productEnDescription = TextEditingController();
+  final TextEditingController productArDescription = TextEditingController();
+  final TextEditingController productPrice = TextEditingController();
+
   List<DataProductResponse> dataList = [];
+  Uint8List? image;
 
   void getProduct() async {
     emit(const ProductState.getProductLoading());
@@ -28,6 +39,25 @@ class ProductCubit extends Cubit<ProductState> {
       },
     );
   }
+
+  Future<void> pickImage() async {
+    final result = await FilePicker.platform.pickFiles(
+      type: FileType.image,
+      allowMultiple: false,
+    );
+
+    if (result != null && result.files.isNotEmpty) {
+      final Uint8List? imageBytes = result.files.first.bytes;
+
+      if (imageBytes != null) {
+        image = imageBytes;
+        emit(ProductState.imageBytes(imageBytes));
+      }
+    }
+  }
+}
+
+
 
   // void clearSearch() {
   //   search.clear();
@@ -111,7 +141,7 @@ class ProductCubit extends Cubit<ProductState> {
   //     maxPrice: selectedRange.end,
   //     sortOrder: getSortOrder(),
   //   );
-}
+//}
 
 //   SortOrder? getSortOrder() {
 //     switch (selectedOption) {
