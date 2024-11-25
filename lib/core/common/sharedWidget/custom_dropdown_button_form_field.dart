@@ -70,7 +70,7 @@ class _CustomDropdownButtonFormFieldState
                       child: ConstrainedBox(
                         constraints: BoxConstraints(
                           maxHeight: responsive
-                              .setHeight(10), // Adjust the height as needed
+                              .setHeight(25), // Adjust the height as needed
                         ),
                         child: Scrollbar(
                           thumbVisibility:
@@ -102,7 +102,7 @@ class _CustomDropdownButtonFormFieldState
                                             .titleLarge!
                                             .copyWith(
                                               fontSize:
-                                                  responsive.setTextSize(3.5),
+                                                  responsive.setTextSize(1),
                                             ),
                                       ),
                                     ),

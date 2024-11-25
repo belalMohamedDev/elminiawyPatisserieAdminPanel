@@ -85,7 +85,7 @@ export '../../../../core/application/di.dart';
 
 export '../../../feature/productBasedOnCategory/cubit/product_based_on_category_cubit.dart';
 export '../../../feature/productBasedOnCategory/presentation/screen/get_product_based_on_category.dart';
-export '../../../feature/sideMenu/logic/categoryCubit/category_cubit.dart';
+export '../../../feature/category/cubit/category_cubit.dart';
 
 export '../../../../core/common/statsScreen/loading_shimmer.dart';
 
@@ -276,7 +276,7 @@ export '../../../../core/network/apiResult/api_reuslt.dart';
 export '../../../../core/network/error_handler/api_error_handler.dart';
 
 export '../../../../feature/changePassword/data/model/request/change_my_password_request.dart';
-export '../../../feature/sideMenu/data/model/response/category_response.dart'
+export '../../../feature/category/model/response/category_response.dart'
     hide PaginationRuslt;
 export '../../../../feature/address/data/model/response/create_address_response.dart'
     hide Location;

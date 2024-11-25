@@ -15,6 +15,7 @@ class _SideMenuScreenState extends State<SideMenuScreen> {
   @override
   void initState() {
     instance<ProductCubit>().getProduct();
+    instance<CategoryCubit>().getCategories();
     super.initState();
   }
 

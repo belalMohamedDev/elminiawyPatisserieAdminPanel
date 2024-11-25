@@ -1,3 +1,4 @@
+import 'package:elminiawy/feature/category/model/repository/repositry.dart';
 import 'package:elminiawy/feature/sideMenu/logic/sideMenuCuibt/side_menu_cubit.dart';
 
 import '../../../../core/common/shared/shared_imports.dart';
@@ -23,7 +24,8 @@ Future<void> initAppModule() async {
     _initNotification(),
     _initSearch(),
     _initSignInWithGoogleAndApple(),
-    _initSideMenu()
+    _initSideMenu(),
+    _initCategory()
   ]);
 }
 
@@ -35,7 +37,6 @@ Future<void> _initAppModule() async {
   Bloc.observer = AppBlocObserver();
 
   final navigatorKey = GlobalKey<NavigatorState>();
- 
 
   // Dio & ApiService
 
@@ -59,9 +60,6 @@ Future<void> _inithome() async {
         () => HomeRepositoryImplement(
               instance(),
             ))
-    ..registerFactory<CategoryCubit>(() => CategoryCubit(
-          instance(),
-        ))
     ..registerFactory<BannerCubit>(() => BannerCubit(
           instance(),
         ));
@@ -79,6 +77,17 @@ Future<void> _initLogin() async {
       ));
 }
 
+Future<void> _initCategory() async {
+  instance
+    ..registerLazySingleton<CategoryRepositoryImplement>(
+        () => CategoryRepositoryImplement(
+              instance(),
+            ))
+    ..registerLazySingleton<CategoryCubit>(() => CategoryCubit(
+          instance(),
+        ));
+}
+
 Future<void> _initSignInWithGoogleAndApple() async {
   instance.registerLazySingleton<AuthenticationRepositoryImplement>(
       () => AuthenticationRepositoryImplement(instance()));
@@ -89,7 +98,6 @@ Future<void> _initProduct() async {
       () => ProductRepository(instance()));
   instance.registerLazySingleton<ProductCubit>(() => ProductCubit(
         instance(),
-        
       ));
 }
 

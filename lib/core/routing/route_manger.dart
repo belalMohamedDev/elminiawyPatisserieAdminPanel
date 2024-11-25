@@ -136,6 +136,9 @@ class RouteGenerator {
               BlocProvider.value(
                 value: instance<SideMenuCubit>(),
               ),
+              BlocProvider.value(
+                value: instance<CategoryCubit>(),
+              ),
             ],
             child: const SideMenuScreen(),
           ),
